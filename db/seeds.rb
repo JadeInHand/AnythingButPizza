@@ -1,7 +1,24 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+Category.destroy_all
+cat1 = Category.create :types => "Turkish"
+cat2 = Category.create :types => "Baked Goods"
+
+
+Item.destroy_all
+itm1 = Item.create :name => "Banana Bread", :servings => 10, :cost => 5.00, :description => "Super Tasty Yummy B Bread", :tags => "Tasty, Homecooked, Made with love.", :active => true
+itm2 = Item.create :name => "Baklava", :servings => 8, :cost => 1.00, :description => "Kas's Tasty Baklava", :tags => "Moist, Homecooked, Made with love.", :active => true
+itm3 = Item.create :name => "Spaghetti", :servings => 3, :cost => 7.00, :description => "Grandma's Special Recipe", :tags => "Tomatoey, Italian, Generation old recipe.", :active => true
+
+
+Line_Item.destroy_all
+li1 = Line_Item.create :quantity_purchased => 3
+li2 = Line_Item.create :quantity_purchased => 2
+li3 = Line_Item.create :quantity_purchased => 1
+li4 = Line_Item.create :quantity_purchased => 2
+li5 = Line_Item.create :quantity_purchased => 2
+
+Shopping_Cart.destroy_all
+sc1 = Shopping_Cart.create :order_number => 1
+sc1 = Shopping_Cart.create :order_number => 2
+sc1 = Shopping_Cart.create :order_number => 3
+
+
