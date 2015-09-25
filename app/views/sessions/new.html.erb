@@ -1,0 +1,16 @@
+<!-- login screen for existing users -->
+<h2>Login</h2>
+ 
+<%= form_tag '/login', :class => 'form-inline' do %>
+    <div class="form-group">
+        <%= label_tag :email %>
+        <%= text_field_tag :email, nil, :class=> "form-control"  %>
+    </div>
+    <div class="form-group">
+        <%= label_tag :password %>
+        <%= password_field_tag :password, nil, :class=> "form-control" %>
+    </div>
+    
+    <%= submit_tag "Login", { :class => "submit btn btn-primary" } %>
+    
+<% end %>
