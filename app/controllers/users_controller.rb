@@ -52,10 +52,13 @@ class UsersController < ApplicationController
 
     @user = @current_user
     user_details = user_params
+
+
     if params[:file]
         response = Cloudinary::Uploader.upload params[:file]
         user_details["image"] = response["url"]
     end
+
     
     respond_to do |format|
       if @user.update(user_params)

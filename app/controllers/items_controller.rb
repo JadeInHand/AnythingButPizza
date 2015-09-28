@@ -10,6 +10,17 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    @item = Item.find params[:id]
+
+    # initializing an empty array
+    @other_items = []
+    @item.user.items.each do |current_item|
+      # looping over all the other items that have the same user_id as the current item.
+      unless current_item.id == @item.id
+        @other_items << current_item
+        # adding items that aren't the current item from the same chef into the array
+      end
+    end
   end
 
   # GET /items/new
@@ -24,7 +35,14 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(item_params)
+    item_details = item_params
+
+    if params[:file]
+        response = Cloudinary::Uploader.upload params[:file]
+        item_details["image"] = response["url"]
+    end
+
+    @item = Item.new(item_details)
     @item.user_id = @current_user.id
 
     respond_to do |format|
@@ -41,6 +59,13 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1
   # PATCH/PUT /items/1.json
   def update
+    item_details = item_params
+
+    if params[:file]
+        response = Cloudinary::Uploader.upload params[:file]
+        item_details["image"] = response["url"]
+    end
+
     respond_to do |format|
       if @item.update(item_params)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
@@ -70,6 +95,6 @@ class ItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def item_params
-      params.require(:item).permit(:name, :servings, :cost, :description, :tags, :image, :active, :user_id, :category_id)
+      params.require(:item).permit(:name, :servings, :cost, :description, :tags, :image, :file, :active, :user_id, :category_id)
     end
 end
