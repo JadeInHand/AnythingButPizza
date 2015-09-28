@@ -6,6 +6,7 @@
 #  item_id            :integer
 #  shopping_cart_id   :integer
 #  quantity_purchased :integer
+#  cost               :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
 #

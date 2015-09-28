@@ -3,7 +3,7 @@
 # Table name: shopping_carts
 #
 #  id           :integer          not null, primary key
-#  quantity     :integer
+#  total_cost   :integer
 #  order_number :integer
 #  user_id      :integer
 #  created_at   :datetime         not null
