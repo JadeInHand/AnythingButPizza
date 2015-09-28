@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+	root :to => "pages#home"
+  get '/home' => 'pages#home', :as => '/home'
 
   resources :shopping_carts
   resources :categories

@@ -31,6 +31,7 @@ class UsersController < ApplicationController
         response = Cloudinary::Uploader.upload params[:file]
         user_details["image"] = response["url"]
     end
+    
     @user = User.new user_details
 
     respond_to do |format|

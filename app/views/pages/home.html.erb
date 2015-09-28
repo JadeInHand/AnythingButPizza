@@ -1,0 +1,25 @@
+<div class="homepage">
+	<% if @current_user.present? %>
+		<%= link_to "Past Orders", user_path(@current_user) %>
+	<% end %>
+	<h1>Anything But Pizza</h1>
+
+	<h3> About Us: We don't do anything </h3>
+
+	<% if @current_user.present? %>
+		<h3> In your area! : <%= link_to "Categories", categories_path %></h3>
+	<% end %>
+
+	<h3> Some things cooking at the moment : </h3>
+	<ul>
+		<% @top5[0..4].each do |top| %>
+			<li><%= link_to "#{top.name}", item_path(top) %></li>
+		<% end %>
+	</ul>
+
+	<% unless @current_user.present? %>
+		<h2> SIGN UP TO USE THE SITE </h2>
+		<%= link_to "Signup", new_user_path %>
+	<% end %>
+
+</div>

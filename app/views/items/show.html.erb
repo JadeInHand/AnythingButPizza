@@ -37,12 +37,12 @@
 
 <p>
   <strong>User:</strong>
-  <%= @item.user_id %>
+  <%= @item.user.name %>
 </p>
 
 <p>
   <strong>Category:</strong>
-  <%= @item.category_id %>
+  <%= @item.category.types %>
 </p>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |

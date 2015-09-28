@@ -2,26 +2,32 @@
 
 <h1>Listing Categories</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Types</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<% @in_area.each do |thing| %>
+  <li><%= link_to thing.types, category_path(thing) %></li>
+<% end %>
 
-  <tbody>
-    <% @categories.each do |category| %>
+
+<% if @current_user && @current_user.admin? %>
+  <table>
+    <thead>
       <tr>
-        <td><%= category.types %></td>
-        <td><%= link_to 'Show', category %></td>
-        <td><%= link_to 'Edit', edit_category_path(category) %></td>
-        <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th>Types</th>
+        <th colspan="3"></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
 
-<br>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.types %></td>
+          <td><%= link_to 'Show', category %></td>
+          <td><%= link_to 'Edit', edit_category_path(category) %></td>
+          <td><%= link_to 'Destroy', category, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<%= link_to 'New Category', new_category_path %>
+  <br>
+  <%= link_to 'New Category', new_category_path %>
+<% end %>

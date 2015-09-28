@@ -5,6 +5,17 @@ class CategoriesController < ApplicationController
   # GET /categories.json
   def index
     @categories = Category.all
+    @in_area = []
+    @items = Item.all
+
+    @items.each do |item|
+      @in_area << item.category if item.user.postcode == @current_user.postcode
+    end
+
+    # @in_area << Item.all.where(this.user.postcode == @current_user.postcode)
+
+    # @categories = Category.where(item.user.postcode === @current_user.postcode)
+
   end
 
   # GET /categories/1
