@@ -1,9 +1,25 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Categories</h1>
+<h1>Listing Categories from 
+  <% unless params[:postcode].nil? %>
+    <%= params[:postcode] %>
+  <% else %>
+    <%= @current_user.postcode %>
+  <% end %>
+</h1>
+
+
 
 <% @in_area.each do |thing| %>
-  <li><%= link_to thing.types, category_path(thing) %></li>
+  <% if thing.types %>
+    <ul><%= thing.types %>
+      <% @list_items.each do |item|%>
+        <% if item.category.types == thing.types  %>
+          <li><%= link_to item.name, item_path(item.id) %></li>
+        <% end %>
+      <% end %>
+    </ul>
+  <% end %>
 <% end %>
 
 

@@ -6,11 +6,23 @@ class CategoriesController < ApplicationController
   def index
     @categories = Category.all
     @in_area = []
+    @list_items = []
     @items = Item.all
-
-    @items.each do |item|
-      @in_area << item.category if item.user.postcode == @current_user.postcode
+    unless params[:postcode].nil?
+      @items.each do |item|
+        if @in_area.index(item.category).nil?
+          @in_area << item.category if item.user.postcode == params[:postcode]
+        end
+        @list_items << item if item.user.postcode == params[:postcode]
+      end
+    else
+      @items.each do |item|
+        if @in_area.index(item.category).nil?
+          @in_area << item.category if item.user.postcode == @current_user.postcode
+      end
+        @list_items << item if item.user.postcode == @current_user.postcode
     end
+  end
 
     # @categories = Category.where(item.user.postcode === @current_user.postcode)
 

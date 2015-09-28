@@ -15,6 +15,7 @@
 		<input type="text" placeholder="Search Postcode" id="nav-search" name="postcode">
 		<button id="nav-search-btn">Search</button>
 		</form>
+		<%= link_to "Food in your postcode", categories_path %>
 	<% else %>
 		<%= link_to "Login", login_path %>
 		<%= link_to "New User", new_user_path %>
