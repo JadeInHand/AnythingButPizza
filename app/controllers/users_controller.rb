@@ -24,10 +24,18 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    @user = User.new(user_params)
+
+    user_details = user_params
+    
+    if params[:file]
+        response = Cloudinary::Uploader.upload params[:file]
+        user_details["image"] = response["url"]
+    end
+    @user = User.new user_details
 
     respond_to do |format|
       if @user.save
+        session[:user_id] = @user.id
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -40,6 +48,14 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
+
+    @user = @current_user
+    user_details = user_params
+    if params[:file]
+        response = Cloudinary::Uploader.upload params[:file]
+        user_details["image"] = response["url"]
+    end
+    
     respond_to do |format|
       if @user.update(user_params)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
@@ -69,6 +85,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :email, :address, :latitude, :longitude, :postcode, :image)
+      params.require(:user).permit(:name, :email, :address, :latitude, :longitude, :postcode, :image, :file, :password, :password_confirmation)
     end
 end

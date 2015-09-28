@@ -9,16 +9,16 @@ itm2 = Item.create :name => "Baklava", :servings => 8, :cost => 1.00, :descripti
 itm3 = Item.create :name => "Spaghetti", :servings => 3, :cost => 7.00, :description => "Grandma's Special Recipe", :tags => "Tomatoey, Italian, Generation old recipe.", :active => true
 
 
-Line_Item.destroy_all
-li1 = Line_Item.create :quantity_purchased => 3
-li2 = Line_Item.create :quantity_purchased => 2
-li3 = Line_Item.create :quantity_purchased => 1
-li4 = Line_Item.create :quantity_purchased => 2
-li5 = Line_Item.create :quantity_purchased => 2
 
-Shopping_Cart.destroy_all
-sc1 = Shopping_Cart.create :order_number => 1
-sc1 = Shopping_Cart.create :order_number => 2
-sc1 = Shopping_Cart.create :order_number => 3
+ShoppingCart.destroy_all
+sc1 = ShoppingCart.create :order_number => 1
+sc1 = ShoppingCart.create :order_number => 2
+sc1 = ShoppingCart.create :order_number => 3
 
+LineItem.destroy_all
+li1 = LineItem.create :quantity_purchased => 3
+li2 = LineItem.create :quantity_purchased => 2
+li3 = LineItem.create :quantity_purchased => 1
+li4 = LineItem.create :quantity_purchased => 2
+li5 = LineItem.create :quantity_purchased => 2
 

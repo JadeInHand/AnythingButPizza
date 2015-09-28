@@ -40,12 +40,7 @@
     <%= f.check_box :active %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
-  </div>
-  <div class="field">
-    <%= f.label :category_id %><br>
-    <%= f.number_field :category_id %>
+    <%= f.select :category_id, Category.all.map { |category| [category.types, category.id ] } %>
   </div>
   <div class="actions">
     <%= f.submit %>
