@@ -61,23 +61,7 @@
   <%= link_to 'Back', items_path %>
 <% end %>
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+<div class="price_line">
+  <span class="price"><%= @item.cost %></span> 
+  <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => 234, :shopping_cart_id =>34689, :quantity_purchased => 19999, :cost => 1}), {method: :post}%>
+</div>
