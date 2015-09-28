@@ -12,8 +12,6 @@ class CategoriesController < ApplicationController
       @in_area << item.category if item.user.postcode == @current_user.postcode
     end
 
-    # @in_area << Item.all.where(this.user.postcode == @current_user.postcode)
-
     # @categories = Category.where(item.user.postcode === @current_user.postcode)
 
   end
