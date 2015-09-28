@@ -25,7 +25,6 @@ class CategoriesController < ApplicationController
   end
 
     # @categories = Category.where(item.user.postcode === @current_user.postcode)
-
   end
 
   # GET /categories/1
@@ -35,11 +34,18 @@ class CategoriesController < ApplicationController
 
   # GET /categories/new
   def new
+    unless @current_user
+      redirect_to root_path
+    end
     @category = Category.new
+
   end
 
   # GET /categories/1/edit
   def edit
+    unless @current_user
+      redirect_to root_path
+    end
   end
 
   # POST /categories

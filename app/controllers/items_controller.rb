@@ -25,11 +25,18 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+    unless @current_user
+      redirect_to root_path
+    end
     @item = Item.new
   end
 
   # GET /items/1/edit
   def edit
+    item_creator = Item.find_by(:id => params[:id])
+    unless @current_user && @current_user.id == item_creator.user_id
+      redirect_to root_path
+    end
   end
 
   # POST /items
