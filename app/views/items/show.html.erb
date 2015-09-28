@@ -27,7 +27,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @item.image %>
+  <%= image_tag @item.image, :class => "item-img" %>
 </p>
 
 <p>
@@ -45,10 +45,32 @@
   <%= @item.category.types %>
 </p>
 
+<<<<<<< HEAD
+=======
+<% unless @other_items.count == 0 %>
+  <h2> Other Items by this Cook:</h2>
+  <% @item.user.items.each do |item|  %>
+    <% unless item.active == false %>
+      <%= link_to item.name, item_path %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<br>
+<br>
+<% if @current_user.id == @item.user_id %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
+<% end %>
+
+>>>>>>> 7f45cb74a57c6896417602c320b5dc1ad5a25d65
 <div class="price_line">
   <span class="price"><%= @item.cost %></span> 
   <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => 234, :shopping_cart_id =>34689, :quantity_purchased => 19999, :cost => 1}), {method: :post}%>
 </div>
+<<<<<<< HEAD
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>
+=======
+>>>>>>> 7f45cb74a57c6896417602c320b5dc1ad5a25d65
