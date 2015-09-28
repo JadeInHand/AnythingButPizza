@@ -15,10 +15,15 @@ class LineItemsController < ApplicationController
   # GET /line_items/new
   def new
     @line_item = LineItem.new
+
   end
 
   # GET /line_items/1/edit
   def edit
+    # item_creator = Item.find_by(:id => params[:id])
+    # unless @current_user && @current_user.id == item_creator.user_id
+    #   redirect_to root_path
+    # end
   end
 
   # POST /line_items

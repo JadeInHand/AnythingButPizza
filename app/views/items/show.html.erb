@@ -27,7 +27,7 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @item.image %>
+  <%= image_tag @item.image, :class => "item-img" %>
 </p>
 
 <p>
@@ -45,5 +45,39 @@
   <%= @item.category.types %>
 </p>
 
-<%= link_to 'Edit', edit_item_path(@item) %> |
-<%= link_to 'Back', items_path %>
+<% unless @other_items.count == 0 %>
+  <h2> Other Items by this Cook:</h2>
+  <% @item.user.items.each do |item|  %>
+    <% unless item.active == false %>
+      <%= link_to item.name, item_path %>
+    <% end %>
+  <% end %>
+<% end %>
+
+<br>
+<br>
+<% if @current_user.id == @item.user_id %>
+  <%= link_to 'Edit', edit_item_path(@item) %> |
+  <%= link_to 'Back', items_path %>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

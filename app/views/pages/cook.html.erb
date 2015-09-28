@@ -1,0 +1,16 @@
+<h1> Current Yums </h1>
+<% @yum_items.each do |yum| %>
+	<%= link_to yum.name, item_path(yum.id) %>
+	<p> Number of Servings left : <%= yum.servings %> </p>
+<% end %>
+
+<h2> Past Yums </h2>
+<% @past_yums.each do |yum| %>
+	<%= link_to yum.name, item_path(yum.id) %>
+<% end %>
+
+<br>
+<br>
+<%= link_to "New YUM!", new_item_path %>
+
+<h2> Who's on their way?! : </h2>
