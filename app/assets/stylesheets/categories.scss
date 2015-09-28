@@ -1,3 +1,11 @@
 .item-img {
 	max-width: 300px;
 }
+
+.category-list ul {
+	background:none!important;
+	border:none; 
+	padding:0!important;
+	font: inherit;
+	cursor: pointer;
+}

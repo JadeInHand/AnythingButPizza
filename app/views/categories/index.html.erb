@@ -12,13 +12,17 @@
 
 <% @in_area.each do |thing| %>
   <% if thing.types %>
-    <ul><%= thing.types %>
-      <% @list_items.each do |item|%>
-        <% if item.category.types == thing.types  %>
-          <li><%= link_to item.name, item_path(item.id) %></li>
+
+    <div class="category-list">
+      <ul><%= thing.types %>
+        <% @list_items.each do |item|%>
+          <% if item.category.types == thing.types  %>
+            <li><%= link_to item.name, item_path(item.id) %></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </ul>
+      </ul>
+    </div>
+    
   <% end %>
 <% end %>
 
