@@ -24,7 +24,15 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
+
+    if ( !session[:shopping_cart_id] )
+      @shopping_cart = ShoppingCart.new
+      @shopping_cart.save
+      session[:shopping_cart_id] = @shopping_cart.id
+    end
     @line_item = LineItem.new(line_item_params)
+    item = Item.find @line_item.item_id
+    @line_item.cost = @line_item.quantity_purchased * item.cost
 
     respond_to do |format|
       if @line_item.save
@@ -35,6 +43,7 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
+    binding.pry
   end
 
   # PATCH/PUT /line_items/1
@@ -69,6 +78,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased)
+      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost)
     end
 end

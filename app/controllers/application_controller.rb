@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
-  before_action :fetch_current_user
+  before_action :fetch_current_user, :fetch_current_shopping_cart
   
   private
   def fetch_current_user
@@ -11,5 +11,12 @@ class ApplicationController < ActionController::Base
           @current_user = User.find_by :id => session[:user_id]
           session[:user_id] = nil unless @current_user.present?
       end
+  end
+
+  def fetch_current_shopping_cart
+    if session[:shopping_cart_id].present?
+      @current_shopping_cart = ShoppingCart.find_by :id => session[:shopping_cart_id]
+      session[:shopping_cart_id] = nil unless @current_shopping_cart.present?
+    end
   end
 end
