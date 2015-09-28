@@ -4,32 +4,37 @@ class CategoriesController < ApplicationController
   # GET /categories
   # GET /categories.json
   def index
-    @categories = Category.all
-    @in_area = []
-    @list_items = []
-    @items = Item.all
-    unless params[:postcode].nil?
-      @items.each do |item|
-        if @in_area.index(item.category).nil?
-          @in_area << item.category if item.user.postcode == params[:postcode]
-        end
-        @list_items << item if item.user.postcode == params[:postcode]
-      end
+    if @current_user.nil?
+        redirect_to root_path
     else
-      @items.each do |item|
-        if @in_area.index(item.category).nil?
-          @in_area << item.category if item.user.postcode == @current_user.postcode
-      end
+      @categories = Category.all
+      @in_area = []
+      @list_items = []
+      @items = Item.all
+      unless params[:postcode].nil?
+        @items.each do |item|
+          if @in_area.index(item.category).nil?
+            @in_area << item.category if item.user.postcode == params[:postcode]
+          end
+          @list_items << item if item.user.postcode == params[:postcode]
+        end
+      else
+        @items.each do |item|
+          if @in_area.index(item.category).nil?
+            @in_area << item.category if item.user.postcode == @current_user.postcode
+          end
         @list_items << item if item.user.postcode == @current_user.postcode
+        end
+      end
     end
-  end
-
-    # @categories = Category.where(item.user.postcode === @current_user.postcode)
   end
 
   # GET /categories/1
   # GET /categories/1.json
   def show
+    unless @current_user
+      redirect_to root_path
+    end
   end
 
   # GET /categories/new

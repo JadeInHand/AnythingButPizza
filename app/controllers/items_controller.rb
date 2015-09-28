@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    unless @current_user && @current_user.admin?
+        redirect_to root_path
+    end
     @items = Item.all
   end
 
