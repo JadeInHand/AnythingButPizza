@@ -57,13 +57,19 @@
     <div class="title"><img src="/assets/Pizza-50-edit.png" alt=""></div>
 </header>
 <% if @current_user.present? %>
-	<div class="search">
+	<div class="search blue">
 		    <form action="/categories">
-					<input type="text" placeholder="Search Postcode" id="nav-search" name="postcode">
-					<button id="nav-search-btn">Find Food</button>
+					<input type="text" class="search blue" placeholder="Search Postcode" id="nav-search" name="postcode">
+					<button class="searchButton blue" id="nav-search-btn">Find Food</button>
 			</form>
 	 </div> 
+	 <% else %>
+	 <div class="banner">
+    	<h1>ANYTHING BUT PIZZA!</h1>
+	</div>
+	 
 <% end %>
+
 
 <div class="container">
 

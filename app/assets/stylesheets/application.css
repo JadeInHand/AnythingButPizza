@@ -20,13 +20,26 @@ body {
 	font-family: "Roboto", sans-serif;
 	margin: 0px;
 	padding: 0px;	
+
+}
+::-webkit-input-placeholder {
+   color: black;
+}
+:-moz-placeholder { /* Firefox 18- */
+   color: black;  
+}
+::-moz-placeholder {  /* Firefox 19+ */
+   color: black;  
+}
+:-ms-input-placeholder {  
+   color: black;  
 }
 
 .banner {
 	width: 100%;
 	height: 500px;
 	margin: auto;
-	background-image: url('../images/image2.jpg');
+	background-image: url('../assets/girl.jpg');
 	background-size: cover;
 	background-position: 0px -72px;
 	text-align: center;
@@ -166,29 +179,36 @@ div.title {
 	text-align: center;
 	margin-top: 70px;
 }
-header input[type=text] {    
+.search input[type=text] {    
     margin-top: 7px;
     height: 28px;
 	padding: 5px;
 	list-style: none;
   	display: inline-block;
-    color: #fff;
+    color: black;
     font-size: 12px;
     border-radius: 10px;
     border: none;
+    
     transition: all ease-in-out .3s;
+    
 }
 
-header input[type=text]#blue
-{
-   width: 400px;
+placeholder { color: red; }
+
+.blue input[type=text] {
+   width: 200px;
    background: rgba(15,170,228, 1);
 }
-header input[type=text]#blue:focus
+.blue input[type=text]:focus
 {
+	
   color:#0faae4;
   width: 400px;
   background:#fff;
+}
+.blue input[type=text]:hover {
+	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
 }
 
 .searchButton {
