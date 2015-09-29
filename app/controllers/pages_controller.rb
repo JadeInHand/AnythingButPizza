@@ -16,8 +16,4 @@ class PagesController < ApplicationController
   	end
   end
 
-
-  def place
-  end
-
 end

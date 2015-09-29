@@ -70,10 +70,8 @@ test
 
   <span class="price"><%= @item.cost %></span> 
 
-  <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :cost => @item.cost}), {method: :post}%>
+  <%= link_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :quantity_purchased => 1, :cost => @item.cost}), {method: :post}%>
 
 </div>
-
-
 
 </form>
