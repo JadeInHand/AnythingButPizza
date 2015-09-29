@@ -17,10 +17,22 @@
 #
 
 class User < ActiveRecord::Base
+	geocoded_by :address
+	validates :address, :presence => true
+	after_validation :geocode
+
 	has_secure_password
 	has_many :items
 	has_many :shopping_carts
 
 	validates :email, :presence => true, :uniqueness => true
 	validates :name, :presence => true, :length => { :minimum => 3 }
+	validates :postcode, :presence => true
 end
+
+
+
+
+
+
+

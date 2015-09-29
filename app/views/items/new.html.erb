@@ -2,4 +2,30 @@
 
 <%= render 'form' %>
 
+<button id="create-category">Create New Category</button>
+
+<div id="show-create-category">
+  <h1> If your category is not showing above, add it below. </h1>
+  <%= form_for(@category) do |f| %>
+    <% if @category.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+        <ul>
+        <% @category.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field">
+      <%= f.label :types %><br>
+      <%= f.text_field :types %>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>
 <%= link_to 'Back', items_path %>

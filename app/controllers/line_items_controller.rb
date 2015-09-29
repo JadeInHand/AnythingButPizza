@@ -15,7 +15,6 @@ class LineItemsController < ApplicationController
   # GET /line_items/new
   def new
     lineItem_details = line_item_params
-   
     
     if ( !session[:shopping_cart_id] || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
@@ -26,7 +25,6 @@ class LineItemsController < ApplicationController
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
 
      @line_item = LineItem.new lineItem_details
-
 
   end
 
@@ -49,13 +47,11 @@ class LineItemsController < ApplicationController
       @shopping_cart.save
       session[:shopping_cart_id] = @shopping_cart.id
     end
-    # @line_item.cost = @line_item.quantity_purchased * item.cost
-
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
 
-     @line_item = LineItem.new lineItem_details
+    @line_item = LineItem.new lineItem_details
 
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])
@@ -72,11 +68,6 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-
-    # binding.pry
-
-    
-
   end
 
   # PATCH/PUT /line_items/1
@@ -114,3 +105,7 @@ class LineItemsController < ApplicationController
       params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost)
     end
 end
+
+
+
+

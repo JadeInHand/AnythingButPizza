@@ -8,6 +8,10 @@ class PaymentController < ApplicationController
     end
 
     def create
+
+      @li = LineItem.find_by(:shopping_cart_id => session[:shopping_cart_id])
+      gon.address = @li.item.user.address
+
       # Amount in cents
       @amount = ShoppingCart.find(session[:shopping_cart_id]).total_cost * 100
 
@@ -23,9 +27,16 @@ class PaymentController < ApplicationController
         :currency    => 'usd'
       )
 
-
       cart = ShoppingCart.find(session[:shopping_cart_id])
+
+      cart.line_items.each do |lineItem| 
+        item = Item.find(lineItem.item_id)
+        # remaining = item.servings - lineItem.quantity_purchased
+        item.update :servings => item.servings_left        
+      end
+
       cart.update :active => false
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
