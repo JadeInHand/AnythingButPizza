@@ -4,6 +4,7 @@ class CreateLineItems < ActiveRecord::Migration
       t.integer :item_id
       t.integer :shopping_cart_id
       t.integer :quantity_purchased
+      t.integer :cost
 
       t.timestamps null: false
     end

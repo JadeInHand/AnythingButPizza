@@ -40,14 +40,16 @@ ActiveRecord::Schema.define(version: 20150928025042) do
     t.integer  "item_id"
     t.integer  "shopping_cart_id"
     t.integer  "quantity_purchased"
+    t.integer  "cost"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
 
   create_table "shopping_carts", force: :cascade do |t|
-    t.integer  "quantity"
+    t.integer  "total_cost"
     t.integer  "order_number"
     t.integer  "user_id"
+    t.boolean  "active"
     t.datetime "created_at",   null: false
     t.datetime "updated_at",   null: false
   end
