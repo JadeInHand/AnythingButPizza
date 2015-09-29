@@ -2,10 +2,16 @@
 	max-width: 300px;
 }
 
+.user-img {
+	max-width: 300px;
+}
+
 .category-list ul {
 	background:none!important;
-	border:none; 
+	border:display; 
 	padding:0!important;
 	font: inherit;
 	cursor: pointer;
+	text-decoration: underline;
+	color: pink;
 }

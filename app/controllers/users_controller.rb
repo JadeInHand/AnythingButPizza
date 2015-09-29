@@ -14,9 +14,7 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    unless @current_user.id.to_s == params[:id]
-      redirect_to user_path(@current_user.id)
-    end
+    @yums_by_me = Item.where(:user_id => params[:id])
   end
 
   # GET /users/new
