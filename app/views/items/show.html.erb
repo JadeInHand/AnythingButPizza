@@ -72,6 +72,13 @@
     </div>
   <% end %>
 <% end %>
+
+<div class="price_line">
+
+  <span class="price"><%= @item.cost %></span> 
+  <%= link_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :quantity_purchased => 1, :cost => @item.cost}), {method: :post}%>
+
+</div>
 </form>
 
 <%= link_to 'Back', items_path %>

@@ -27,7 +27,6 @@ class LineItemsController < ApplicationController
 
      @line_item = LineItem.new lineItem_details
 
-
   end
 
   # GET /line_items/1/edit
@@ -49,8 +48,6 @@ class LineItemsController < ApplicationController
       @shopping_cart.save
       session[:shopping_cart_id] = @shopping_cart.id
     end
-    # @line_item.cost = @line_item.quantity_purchased * item.cost
-
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
@@ -73,8 +70,11 @@ class LineItemsController < ApplicationController
       end
     end
 
+<<<<<<< HEAD
     # binding.pry
 
+=======
+>>>>>>> aili
     
 
   end
@@ -114,3 +114,7 @@ class LineItemsController < ApplicationController
       params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost)
     end
 end
+
+
+
+

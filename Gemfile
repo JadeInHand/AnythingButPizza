@@ -30,6 +30,10 @@ gem 'cloudinary'
 
 gem 'stripe'
 
+gem 'gon'
+
+gem 'geocoder'
+
 # Use Unicorn as the app server
 # gem 'unicorn'
 

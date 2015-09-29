@@ -59,8 +59,14 @@ GEM
       unf (>= 0.0.5, < 1.0.0)
     erubis (2.7.0)
     execjs (2.6.0)
+    geocoder (1.2.11)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    gon (6.0.1)
+      actionpack (>= 3.0)
+      json
+      multi_json
+      request_store (>= 1.0)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -120,6 +126,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    request_store (1.2.0)
     rest-client (1.8.0)
       http-cookie (>= 1.0.2, < 2.0)
       mime-types (>= 1.16, < 3.0)
@@ -170,6 +177,8 @@ DEPENDENCIES
   byebug
   cloudinary
   coffee-rails (~> 4.1.0)
+  geocoder
+  gon
   jbuilder (~> 2.0)
   jquery-rails
   pg
