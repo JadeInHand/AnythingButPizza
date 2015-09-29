@@ -6,34 +6,29 @@
 </p>
 
 <p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>Latitude:</strong>
-  <%= @user.latitude %>
-</p>
-
-<p>
-  <strong>Longitude:</strong>
-  <%= @user.longitude %>
-</p>
-
-<p>
   <strong>Postcode:</strong>
   <%= @user.postcode %>
 </p>
 
 <p>
   <strong>Image:</strong>
-  <%= @user.image %>
+  <%= image_tag @user.image, :class => "user-img" %>
 </p>
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<p>
+  <strong>Past Orders:</strong>
+  <%=  %>
+</p>
+
+<p>
+  <strong>Past Yums:</strong>
+  <% @yums_by_me.each do |yum| %>
+    <br>
+    <%= yum.name %>
+  <% end %>
+</p>
+
+<% if @current_user.id.to_s == params[:id] %>
+  <%= link_to 'Edit', edit_user_path(@user) %>
+  <%= link_to 'Back', users_path %>
+<% end %>

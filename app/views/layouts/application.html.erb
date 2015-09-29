@@ -7,22 +7,26 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-<nav>
-	<% if @current_user.present? %>
-		<%= link_to "Edit Profile", edit_user_path(@current_user) %>
-		<%= link_to "Logout(#{ @current_user.name })", login_path, :method => "delete", :data => {:confirm => "Are you sure you wish to logout?"} %>
-		<form action="/categories">
-		<input type="text" placeholder="Search Postcode" id="nav-search" name="postcode">
-		<button id="nav-search-btn">Search</button>
-		</form>
-		<%= link_to "Food in your postcode", categories_path %>
-	<% else %>
-		<%= link_to "Login", login_path %>
-		<%= link_to "New User", new_user_path %>
-	<% end %>
-</nav>
+<div class="nav-bar">
+	<nav>
+		<% if @current_user.present? %>
+			<%= link_to "Edit Profile", edit_user_path(@current_user) %>
+			<%= link_to "Logout(#{ @current_user.name })", login_path, :method => "delete", :data => {:confirm => "Are you sure you wish to logout?"} %>
+			<%= link_to "Wanna Cook?", cook_path %>
+			<%= link_to "Wanna Eat?", categories_path %>
+			<form action="/categories">
+			<input type="text" placeholder="Search Postcode" id="nav-search" name="postcode">
+			<button id="nav-search-btn">Find Food</button>
+			</form>
+			<%= link_to "Food in your postcode", categories_path %>
+		<% else %>
+			<%= link_to "Login", login_path %>
+			<%= link_to "New User", new_user_path %>
+		<% end %>
+	</nav>
+</div>
 <div id="container">
-<%= yield %>
+	<%= yield %>
 </div>
 </body>
 </html>
