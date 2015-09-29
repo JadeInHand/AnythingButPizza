@@ -15,8 +15,10 @@
     <div class="category-list">
       <ul><%= thing.types %>
         <% @list_items.each do |item|%>
-          <% if item.category.types == thing.types  %>
-            <li><%= link_to item.name, item_path(item.id) %></li>
+          <% unless item.active == false %>
+            <% if item.category.types == thing.types  %>
+              <li><%= link_to item.name, item_path(item.id) %></li>
+            <% end %>
           <% end %>
         <% end %>
       </ul>
