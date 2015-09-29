@@ -9,7 +9,8 @@ class PaymentController < ApplicationController
 
     def create
 
-      gon.address = @current_user.address
+      li = LineItem.find_by(:shopping_cart_id => session[:shopping_cart_id])
+      gon.address = li.item.user.address
 
       # Amount in cents
       @amount = ShoppingCart.find(session[:shopping_cart_id]).total_cost * 100
