@@ -5,7 +5,7 @@
 #  id                 :integer          not null, primary key
 #  item_id            :integer
 #  shopping_cart_id   :integer
-#  quantity_purchased :integer
+#  quantity_purchased :integer          default(0)
 #  cost               :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null

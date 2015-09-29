@@ -15,7 +15,6 @@ class LineItemsController < ApplicationController
   # GET /line_items/new
   def new
     lineItem_details = line_item_params
-   
     
     if ( !session[:shopping_cart_id] || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
@@ -52,7 +51,7 @@ class LineItemsController < ApplicationController
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
 
-     @line_item = LineItem.new lineItem_details
+    @line_item = LineItem.new lineItem_details
 
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])

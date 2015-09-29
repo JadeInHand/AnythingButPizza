@@ -28,7 +28,8 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
-
+    @category = Category.new
+    @item = Item.new
     unless @current_user
       redirect_to root_path
     end
@@ -38,8 +39,6 @@ class ItemsController < ApplicationController
       # :data => {:confirm => "Must have current address in order to create a new item"} 
       redirect_to edit_user_path(@current_user.id)
     end
-    @category = Category.new
-    @item = Item.new
   end
 
   # GET /items/1/edit
@@ -78,7 +77,7 @@ class ItemsController < ApplicationController
   # PATCH/PUT /items/1.json
   def update
     item_details = item_params
-
+    @category = Category.new
     if params[:file]
         response = Cloudinary::Uploader.upload params[:file]
         item_details["image"] = response["url"]

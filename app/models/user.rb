@@ -27,6 +27,7 @@ class User < ActiveRecord::Base
 
 	validates :email, :presence => true, :uniqueness => true
 	validates :name, :presence => true, :length => { :minimum => 3 }
+	validates :postcode, :presence => true
 end
 
 
