@@ -15,7 +15,7 @@
   <tbody>
     <% @shopping_carts.each do |shopping_cart| %>
       <tr>
-        <td><%= shopping_cart.quantity %></td>
+        <td><%= shopping_cart.total_cost %></td>
         <td><%= shopping_cart.order_number %></td>
         <td><%= shopping_cart.user_id %></td>
         <td><%= link_to 'Show', shopping_cart %></td>

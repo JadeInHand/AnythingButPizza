@@ -66,7 +66,7 @@
 >>>>>>> 7f45cb74a57c6896417602c320b5dc1ad5a25d65
 <div class="price_line">
   <span class="price"><%= @item.cost %></span> 
-  <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => 234, :shopping_cart_id =>34689, :quantity_purchased => 19999, :cost => 1}), {method: :post}%>
+  <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :cost => @item.cost}), {method: :post}%>
 </div>
 <<<<<<< HEAD
 

@@ -37,7 +37,9 @@ class LineItemsController < ApplicationController
     end
     @line_item = LineItem.new(line_item_params)
     item = Item.find @line_item.item_id
-    @line_item.cost = @line_item.quantity_purchased * item.cost
+    @line_item.cost = 1 * item.cost
+
+    # @line_item.cost = @line_item.quantity_purchased * item.cost
 
     respond_to do |format|
       if @line_item.save
@@ -48,7 +50,7 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-    binding.pry
+    # binding.pry
   end
 
   # PATCH/PUT /line_items/1
