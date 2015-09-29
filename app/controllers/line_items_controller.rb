@@ -49,13 +49,8 @@ class LineItemsController < ApplicationController
       @shopping_cart.save
       session[:shopping_cart_id] = @shopping_cart.id
     end
-<<<<<<< HEAD
-    @line_item = LineItem.new(line_item_params)
-    item = Item.find @line_item.item_id
-    @line_item.cost = 1 * item.cost
-
     # @line_item.cost = @line_item.quantity_purchased * item.cost
-=======
+
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
@@ -66,22 +61,22 @@ class LineItemsController < ApplicationController
     @cart = ShoppingCart.find(session[:shopping_cart_id])
     # @cart.update :total_cost => lineItem_details['cost']
     # @cart.update :total_cost => @line_item.cost
->>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
+
 
     respond_to do |format|
       if @line_item.save
-        format.html { redirect_to @line_item, notice: 'Line item was successfully created.' }
+        format.html { redirect_to shopping_cart_path(session[:shopping_cart_id]), notice: 'Line item was successfully created.' }
         format.json { render :show, status: :created, location: @line_item }
       else
         format.html { render :new }
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-<<<<<<< HEAD
+
     # binding.pry
-=======
+
     
->>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
+
   end
 
   # PATCH/PUT /line_items/1

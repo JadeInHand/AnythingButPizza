@@ -10,7 +10,6 @@ class ShoppingCartsController < ApplicationController
   # GET /shopping_carts/1
   # GET /shopping_carts/1.json
   def show
-
     @line_items = LineItem.all
   end
 
