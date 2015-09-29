@@ -1,0 +1,14 @@
+
+
+<h2>PAY YOUR BILL</h2>
+<form action="/payment" method="POST">
+  <script
+    src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+    data-key="pk_test_6pRNASCoBOKtIshFeQd4XMUh"
+    data-amount=<%= @cost * 100 %>
+    data-name="Anything But Pizza"
+    data-description="ABP Total Bill"
+    data-image="/128x128.png"
+    data-locale="auto">
+  </script>
+</form>
