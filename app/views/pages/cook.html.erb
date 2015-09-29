@@ -11,6 +11,11 @@
 
 <br>
 <br>
-<%= link_to "New YUM!", new_item_path %>
+
+<% if @current_user.address == "" %>
+	<%= link_to "New YUM!", new_item_path, :data => {:confirm => "Must have current address in order to create a new item"} %>
+<% else %>
+	<%= link_to "New YUM!", new_item_path %>
+<% end %>
 
 <h2> Who's on their way?! : </h2>

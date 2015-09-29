@@ -2,7 +2,6 @@
 $(document).ready(function() {
 
 	var count = 0;
-
 	$('.category-list ul li').hide();
 
 	$('.category-list ul').on('click', function() {
@@ -18,4 +17,14 @@ $(document).ready(function() {
 		}
 		count++;
 	});
+
+
+	$('#show-create-category').hide();
+	$('#create-category').on('click', function(event) {
+		event.preventDefault();
+		$('#show-create-category').show();
+	});
 });
+
+
+

@@ -28,9 +28,17 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+
     unless @current_user
       redirect_to root_path
     end
+
+    if @current_user.address == ""
+      # :alert => "Must have current address in order to create a new item."
+      # :data => {:confirm => "Must have current address in order to create a new item"} 
+      redirect_to edit_user_path(@current_user.id)
+    end
+    @category = Category.new
     @item = Item.new
   end
 
