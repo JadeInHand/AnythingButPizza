@@ -14,7 +14,19 @@ class LineItemsController < ApplicationController
 
   # GET /line_items/new
   def new
-    @line_item = LineItem.new
+    lineItem_details = line_item_params
+   
+    
+    if ( !session[:shopping_cart_id] || !ShoppingCart.find(session[:shopping_cart_id]).active )
+      @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
+      @shopping_cart.save
+      session[:shopping_cart_id] = @shopping_cart.id
+    end
+     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    lineItem_details["shopping_cart_id"] = @shopping_cart.id
+
+     @line_item = LineItem.new lineItem_details
+
 
   end
 
@@ -29,15 +41,32 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
-
-    if ( !session[:shopping_cart_id] )
-      @shopping_cart = ShoppingCart.new
+    lineItem_details = line_item_params
+   item = Item.find_by(:id => lineItem_details['item_id'])
+    
+    if ( !session[:shopping_cart_id]  || !ShoppingCart.find(session[:shopping_cart_id]).active )
+      @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
       @shopping_cart.save
       session[:shopping_cart_id] = @shopping_cart.id
     end
+<<<<<<< HEAD
     @line_item = LineItem.new(line_item_params)
     item = Item.find @line_item.item_id
-    @line_item.cost = @line_item.quantity_purchased * item.cost
+    @line_item.cost = 1 * item.cost
+
+    # @line_item.cost = @line_item.quantity_purchased * item.cost
+=======
+
+    @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    lineItem_details["shopping_cart_id"] = @shopping_cart.id
+
+     @line_item = LineItem.new lineItem_details
+
+    # Update cart
+    @cart = ShoppingCart.find(session[:shopping_cart_id])
+    # @cart.update :total_cost => lineItem_details['cost']
+    # @cart.update :total_cost => @line_item.cost
+>>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
 
     respond_to do |format|
       if @line_item.save
@@ -48,7 +77,11 @@ class LineItemsController < ApplicationController
         format.json { render json: @line_item.errors, status: :unprocessable_entity }
       end
     end
-    binding.pry
+<<<<<<< HEAD
+    # binding.pry
+=======
+    
+>>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
   end
 
   # PATCH/PUT /line_items/1
