@@ -13,3 +13,13 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+$(document).ready(function() {
+
+  	 jQuery(function($){
+     	     $( '.menu-btn' ).click(function(){
+     	     $('.responsive-menu').toggleClass('expand');
+     	     
+     	     });
+         });
+});
