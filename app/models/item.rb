@@ -20,4 +20,11 @@ class Item < ActiveRecord::Base
 	has_many :line_items
 	belongs_to :user
 	belongs_to :category
+
+	def is_active 
+		if self.servings == 0
+			self.active = false
+		end
+		active
+	end
 end
