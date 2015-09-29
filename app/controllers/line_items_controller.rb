@@ -70,13 +70,6 @@ class LineItemsController < ApplicationController
       end
     end
 
-<<<<<<< HEAD
-    # binding.pry
-
-=======
->>>>>>> aili
-    
-
   end
 
   # PATCH/PUT /line_items/1
