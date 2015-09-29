@@ -1,5 +1,6 @@
 <p id="notice"><%= notice %></p>
 
+<form action="">
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
@@ -44,6 +45,8 @@
   <strong>Category:</strong>
   <%= @item.category.types %>
 </p>
+test
+<%= @shopping_cart %>
 
 <<<<<<< HEAD
 =======
@@ -65,10 +68,18 @@
 
 >>>>>>> 7f45cb74a57c6896417602c320b5dc1ad5a25d65
 <div class="price_line">
+
   <span class="price"><%= @item.cost %></span> 
+<<<<<<< HEAD
   <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :cost => @item.cost}), {method: :post}%>
+=======
+  <%= link_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :quantity_purchased => 1, :cost => @item.cost}), {method: :post}%>
+>>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
 </div>
 <<<<<<< HEAD
+
+
+</form>
 
 <%= link_to 'Edit', edit_item_path(@item) %> |
 <%= link_to 'Back', items_path %>

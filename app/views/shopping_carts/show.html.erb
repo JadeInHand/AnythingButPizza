@@ -1,13 +1,23 @@
 <p id="notice"><%= notice %></p>
 
+
+<% @line_items.each do |lineitem| %>
+	<% if lineitem.shopping_cart_id == @shopping_cart.id %>
+		<p><%= lineitem.item.name %>: <%= lineitem.quantity_purchased %></p>
+		<% end %>
+<% end %>
 <p>
+<<<<<<< HEAD
   <strong>Quantity:</strong>
+=======
+  <strong>Total Cost:</strong>
+>>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
   <%= @shopping_cart.total_cost %>
 </p>
 
 <p>
-  <strong>Order number:</strong>
-  <%= @shopping_cart.order_number %>
+  <strong>Cart Id:</strong>
+  <%= @shopping_cart.id %>
 </p>
 
 <p>
@@ -17,3 +27,9 @@
 
 <%= link_to 'Edit', edit_shopping_cart_path(@shopping_cart) %> |
 <%= link_to 'Back', shopping_carts_path %>
+
+<form>
+
+<%= link_to 'Pay', '/payment/new'%>
+
+</form>

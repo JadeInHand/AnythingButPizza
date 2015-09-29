@@ -7,6 +7,9 @@ Rails.application.routes.draw do
 	resources :line_items
 	resources :items
 	resources :users
+
+	resources :payment
+	
 	get '/login' => 'sessions#new'
 	post '/login' => 'sessions#create'
 	delete '/login' => 'sessions#destroy'

@@ -5,7 +5,7 @@
 <table>
   <thead>
     <tr>
-      <th>Quantity</th>
+      <th>Total Costs</th>
       <th>Order number</th>
       <th>User</th>
       <th colspan="3"></th>
@@ -16,7 +16,11 @@
     <% @shopping_carts.each do |shopping_cart| %>
       <tr>
         <td><%= shopping_cart.total_cost %></td>
+<<<<<<< HEAD
         <td><%= shopping_cart.order_number %></td>
+=======
+        <td><%= shopping_cart.id %></td>
+>>>>>>> 8ba2393ca04c9911ef2def8dc4455b15c1ac1d04
         <td><%= shopping_cart.user_id %></td>
         <td><%= link_to 'Show', shopping_cart %></td>
         <td><%= link_to 'Edit', edit_shopping_cart_path(shopping_cart) %></td>
