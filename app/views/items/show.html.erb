@@ -8,7 +8,7 @@
 
 <p>
   <strong>Servings:</strong>
-  <%= @item.servings %>
+  <%= @item.servings_left %>
 </p>
 
 <p>
@@ -64,17 +64,15 @@
   <%= link_to 'Back', items_path %>
 <% end %>
 
-
-<% unless @current_user.id == @item.user_id && @item.active == false %>
-<div class="price_line">
-
-
-  <span class="price"><%= @item.cost %></span> 
-
-  <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :cost => @item.cost}), {method: :post}%>
-
-</div>
+<% unless @current_user.id == @item.user_id %>
+  <% unless @item.active == false %>
+    <% unless @item.servings_left <= 0 %>
+    <div class="price_line">
+      <span class="price"><%= @item.cost %></span> 
+        <%= link_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :quantity_purchased => 1, :cost => @item.cost}), {method: :post}%>
+    </div>
+    <% end %>
+  <% end %>
 <% end %>
-
 
 </form>

@@ -18,6 +18,7 @@
 
 class Item < ActiveRecord::Base
 	has_many :line_items
+	has_many :shopping_carts, :through => :line_items
 	belongs_to :user
 	belongs_to :category
 
@@ -26,5 +27,13 @@ class Item < ActiveRecord::Base
 			self.active = false
 		end
 		active
+	end
+
+	def servings_left
+  		remaining = self.servings
+  		self.line_items.each do |line_item|
+  			remaining -= (line_item.quantity_purchased) if line_item.shopping_cart.active
+  		end
+  		remaining
 	end
 end

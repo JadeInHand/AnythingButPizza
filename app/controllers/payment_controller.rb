@@ -23,9 +23,16 @@ class PaymentController < ApplicationController
         :currency    => 'usd'
       )
 
-
       cart = ShoppingCart.find(session[:shopping_cart_id])
+
+      cart.line_items.each do |lineItem| 
+        item = Item.find(lineItem.item_id)
+        # remaining = item.servings - lineItem.quantity_purchased
+        item.update :servings => item.servings_left        
+      end
+
       cart.update :active => false
+
 
     rescue Stripe::CardError => e
       flash[:error] = e.message
