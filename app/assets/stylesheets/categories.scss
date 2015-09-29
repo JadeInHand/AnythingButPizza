@@ -7,11 +7,28 @@
 }
 
 .category-list ul {
+	border: 1px solid black;
 	background:none!important;
 	border:display; 
 	padding:0!important;
 	font: inherit;
 	cursor: pointer;
-	text-decoration: underline;
+	
 	color: pink;
+}
+
+.category-list ul li {
+	color:blue;
+}
+
+a {
+	color: green;
+	text-decoration: none;
+}
+
+a:hover {
+	font-weight: bold;
+}
+a:visited {
+	color:black;
 }

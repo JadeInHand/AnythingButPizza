@@ -8,7 +8,7 @@
   <% end %>
 </h1>
 
-
+<div class="column column-4">
 <% @in_area.each do |thing| %>
   <% if thing.types %>
 
@@ -50,3 +50,5 @@
   <br>
   <%= link_to 'New Category', new_category_path %>
 <% end %>
+
+</div>
