@@ -22,6 +22,11 @@ body {
 	padding: 0px;	
 
 }
+
+.svg {
+
+	width: 100px;
+}
 ::-webkit-input-placeholder {
    color: black;
 }
@@ -37,24 +42,28 @@ body {
 
 .banner {
 	width: 100%;
-	height: 500px;
+	height: 400px;
 	margin: auto;
-	background-image: url('../assets/girl.jpg');
+	background-image: url('../assets/food.jpg');
 	background-size: cover;
 	background-position: 0px -72px;
-	text-align: center;
+	
+	font-size: 3em;
+
 }
 
 .banner h1 {
 	position: absolute;
-	top:200px;
-	left:37%;
-	font-size: 3em;
+	top:150px;
+	left: 25%;
+	color: white;
+	text-shadow: 3px 3px 0 #0199d9 , 4px 4px 0 #0199d9 , 5px 5px 0 #0199d9 , 6px 6px 0 #0199d9 , 7px 7px 0 #0199d9 , 8px 8px 0 #0199d9 , 9px 9px 0 #0199d9 , 10px 10px 0 #0199d9 , 11px 11px 0 #0199d9 , 12px 12px 0 #0199d9 , 13px 13px 0 #0199d9 , 14px 14px 0 #0199d9 , 15px 15px 0 #0199d9 , 16px 16px 0 #0199d9 , 17px 17px 0 #0199d9 , 18px 18px 0 #0199d9 , 19px 19px 0 #0199d9 , 20px 20px 0 #0199d9 ;
+	
 }
 
 .container {
 	max-width: 960px;
-	margin: 50px auto auto auto;
+	margin: 20px auto auto auto;
 	padding: 10px;
 	
 
@@ -304,6 +313,7 @@ footer {
 .row, 
 .column {
     box-sizing: border-box;
+
 }
 
 .row:before,
