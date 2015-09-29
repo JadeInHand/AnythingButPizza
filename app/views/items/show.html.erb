@@ -37,7 +37,7 @@
 </p>
 
 <p>
-  <strong>User:</strong>
+  <strong>Cook:</strong>
   <%= @item.user.name %>
 </p>
 
@@ -68,9 +68,14 @@ test
 
 >>>>>>> 7f45cb74a57c6896417602c320b5dc1ad5a25d65
 <div class="price_line">
+<<<<<<< HEAD
 
   <span class="price"><%= @item.cost %></span> 
   <%= link_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :quantity_purchased => 1, :cost => @item.cost}), {method: :post}%>
+=======
+  <span class="price">$<%= @item.cost %></span> 
+  <%= button_to 'Add to Cart', line_items_path(:line_item =>{:item_id => 234, :shopping_cart_id =>34689, :quantity_purchased => 19999, :cost => 1}), {method: :post}%>
+>>>>>>> 9b139601413c7308901fb8a731caa428a4e1bb29
 </div>
 <<<<<<< HEAD
 

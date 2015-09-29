@@ -4,6 +4,9 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
+    unless @current_user && @current_user.admin?
+        redirect_to root_path
+    end
     @items = Item.all
   end
 
@@ -25,9 +28,17 @@ class ItemsController < ApplicationController
 
   # GET /items/new
   def new
+
     unless @current_user
       redirect_to root_path
     end
+
+    if @current_user.address == ""
+      # :alert => "Must have current address in order to create a new item."
+      # :data => {:confirm => "Must have current address in order to create a new item"} 
+      redirect_to edit_user_path(@current_user.id)
+    end
+    @category = Category.new
     @item = Item.new
   end
 
@@ -74,7 +85,7 @@ class ItemsController < ApplicationController
     end
 
     respond_to do |format|
-      if @item.update(item_params)
+      if @item.update(item_details)
         format.html { redirect_to @item, notice: 'Item was successfully updated.' }
         format.json { render :show, status: :ok, location: @item }
       else

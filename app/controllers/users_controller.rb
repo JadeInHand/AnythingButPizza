@@ -4,12 +4,17 @@ class UsersController < ApplicationController
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    unless @current_user.admin?
+      redirect_to user_path(@current_user.id)
+    else
+      @users = User.all
+    end
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
+    @yums_by_me = Item.where(:user_id => params[:id])
   end
 
   # GET /users/new
@@ -19,12 +24,15 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
+    unless @current_user.id.to_s == params[:id]
+      redirect_to edit_user_path(@current_user.id)
+    end
   end
 
   # POST /users
   # POST /users.json
   def create
-
+    
     user_details = user_params
     
     if params[:file]

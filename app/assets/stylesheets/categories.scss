@@ -1,3 +1,17 @@
 .item-img {
 	max-width: 300px;
 }
+
+.user-img {
+	max-width: 300px;
+}
+
+.category-list ul {
+	background:none!important;
+	border:display; 
+	padding:0!important;
+	font: inherit;
+	cursor: pointer;
+	text-decoration: underline;
+	color: pink;
+}
