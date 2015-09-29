@@ -14,6 +14,8 @@
 class ShoppingCart < ActiveRecord::Base
 	has_many :line_items
 	belongs_to :user
+	before_filter :require_secure
+
 
 	def total_cost
 		total = 0
@@ -22,4 +24,19 @@ class ShoppingCart < ActiveRecord::Base
 		end
 		total
 	end
+
+  	def require_secure
+  		if not_secure?
+  			sc = ShoppingCart.find(session[:shopping_cart_id])
+  			sc.destroy
+     		redirect_to login_path 
+     	end
+     	return
+  	end
+
+	def not_secure?
+   	    !current_user ||
+    	session[:created_at].nil? ||
+    	(Time.now - session[:created_at] > (60 * 20) )
+  end
 end
