@@ -32,7 +32,7 @@ class Item < ActiveRecord::Base
 	def servings_left
   		remaining = self.servings
   		self.line_items.each do |line_item|
-  			remaining -= (line_item.quantity_purchased) if line_item.shopping_cart.active
+  			remaining -= (line_item.quantity_purchased) if line_item.shopping_cart && line_item.shopping_cart.active
   		end
   		remaining
 	end

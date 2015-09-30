@@ -15,5 +15,12 @@
   <%= @line_item.quantity_purchased %>
 </p>
 
+<p>
+  <strong>Seller ID:</strong>
+  <%= @line_item.seller_id %>
+</p>
+
+
+
 <%= link_to 'Edit', edit_line_item_path(@line_item) %> |
 <%= link_to 'Back', line_items_path %>
