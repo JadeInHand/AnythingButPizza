@@ -61,6 +61,7 @@
 <br>
 <% if @current_user.id == @item.user_id %>
   <%= link_to 'Edit', edit_item_path(@item) %>
+  <%= link_to 'Destroy', item_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
 
 <% unless @current_user.id == @item.user_id %>
