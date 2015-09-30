@@ -211,6 +211,13 @@
 
 </header>
 
+<% if @current_user.nil? %>
+	 
+	 <div class="banner">
+    	<h1>ANYTHING BUT PIZZA!</h1>
+	</div>
+<% end %>
+
 
 <div class="container">
 	<%= include_gon %>
@@ -218,7 +225,7 @@
 </div>
 
 <footer>
-    <span>Site By CKAJ</span>
+ 
 </footer>
 
 </body>

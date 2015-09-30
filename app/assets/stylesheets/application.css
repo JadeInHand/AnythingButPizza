@@ -84,7 +84,7 @@ svg:hover {
 
 .container {
 	
-	margin: 10px 40px auto 40px;
+	margin: 50px 40px auto 40px;
 	padding: 10px;
 	
 
@@ -250,7 +250,6 @@ div.title {
 }
 .blue input[type=text]:focus {
   color:#0faae4;
-  width: 400px;
   background:#fff;
 }
 
@@ -314,7 +313,7 @@ footer {
 	}
 
 	.search {
-		margin-top: 100px;
+		
 	}
 	.mobile-nav {
 		display: inline-block;
