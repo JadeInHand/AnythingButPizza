@@ -1,22 +1,20 @@
-<h1> Current Yums </h1>
-<% @yum_items.each do |yum| %>
-	<%= link_to yum.name, item_path(yum.id) %>
-	<p> Number of Servings left : <%= yum.servings %> </p>
-<% end %>
 
-<h2> Past Yums </h2>
-<% @past_yums.each do |yum| %>
-	<%= link_to yum.name, item_path(yum.id) %>
-<% end %>
 
-<br>
-<br>
+<hr>
+<div class="row">
 
-<% if @current_user.address == "" %>
-	<%= link_to "New YUM!", new_item_path, :data => {:confirm => "Must have current address in order to create a new item"} %>
-<% else %>
-	<%= link_to "New YUM!", new_item_path %>
-<% end %>
+	<div class="column column-4">
+		<h1> Current Yums </h1>
+		<% if @yum_items.empty? %>
+			<p> No Current Yums </p>
+			<% else %>
+				<% @yum_items.each do |yum| %>
+					<%= link_to yum.name, item_path(yum.id) %>
+					<p> Number of Servings left : <%= yum.servings %> </p>
+				<hr>
+			<% end %>
+		<% end %>
+
 
 <h2> Who's on their way?! : </h2>
 
@@ -25,3 +23,38 @@
 	<%= image_tag eater.image, :class => "ontheway-img" %>
 <% end %>
 
+
+	</div>
+	<div class="column column-4">
+		<h2> Past Yums </h2>
+		<% if @past_yums.empty? %>
+			<p> No previous Yums </p>
+		<% else %>
+			<% @past_yums.each do |yum| %>
+				<%= link_to yum.name, item_path(yum.id) %>
+			<% end %>
+		<% end %>
+	
+	<br>
+		<% if @current_user.address == "" %>
+			<br>
+			<%= link_to "Add New YUM!", new_item_path, :data => {:confirm => "Must have current address in order to create a new item"} %>
+		<% else %>
+			<br>
+			<%= link_to "Add New YUM!", new_item_path %>
+		<% end %>
+	</div>
+	<div class="column column-4">
+		<h2> Who's on their way?! : </h2>
+		<% if @on_the_way.empty? %>
+			<p> No one due to arrive for some Yums </p>
+		<% else %>
+			<% @on_the_way.each do |eater| %>
+				<% @on_the_way.each do |array| %>
+					<% correct_word = pluralize(array[3], array[2]) %>
+					<p><%= link_to array[0].capitalize, user_path(array[1]) %> for <%= correct_word %>.</p>
+				<% end %>
+			<% end %>
+		<% end %>
+	</div>
+</div>

@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+
   def home
   	@top5 = Item.where(:active => true)
   end
@@ -16,16 +17,30 @@ class PagesController < ApplicationController
   	end
 
     @on_the_way = []
-    @sold_items = @current_user.items
-    @sold_items.each do |thing|
-      thing.line_items.each do |line_item|
-        if line_item.shopping_cart.active == false
-          if line_item.shopping_cart.paid == true
-            @on_the_way << line_item.shopping_cart.user
-          end
-        end
+    @whats_ordered = []
+    unless @items.nil?
+      @items.each do |item|
+        @whats_ordered << item.line_items if !item.line_items.empty?
       end
     end
-    @on_the_way.uniq!
+
+    unless @whats_ordered.empty?
+      @whats_ordered[0].each do |order|
+        @on_the_way << [(User.find order.shopping_cart.user_id).name, order.shopping_cart.user_id, order.item.name, order.quantity_purchased]
+      end
+    end
+
+
+  #   @sold_items = @sold_items.
+  #   @sold_items.each do |thing|
+  #     thing.line_items.each do |line_item|
+  #       if line_item.shopping_cart.active == false
+  #         if line_item.shopping_cart.paid == true
+  #           @on_the_way << line_item.shopping_cart.user
+  #         end
+  #       end
+  #     end
+  #   end
+  #   @on_the_way.uniq!
   end
 end

@@ -17,6 +17,7 @@ class LineItemsController < ApplicationController
   def new
     lineItem_details = line_item_params 
     # Creates a new line item and a new shopping cart if neither exist. Passes the shopping cart id as a session variable
+    raise 'params'
     if ( !session[:shopping_cart_id] || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
       @shopping_cart.save
@@ -44,6 +45,7 @@ class LineItemsController < ApplicationController
 
     lineItem_details = line_item_params
     item = Item.find_by(:id => lineItem_details['item_id'])
+
     
     if ( !session[:shopping_cart_id]  || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
@@ -53,6 +55,8 @@ class LineItemsController < ApplicationController
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
+    lineItem_details["quantity_purchased"] = params[:quantity]
+
 
     @seller_id = item.user_id 
     lineItem_details["seller_id"] = @seller_id

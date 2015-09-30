@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 16.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg version="1.1"
+	 id="svg2" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:svg="http://www.w3.org/2000/svg"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="57.125px"
+	 height="57.125px" viewBox="-25.125 -25.125 57.125 57.125" enable-background="new -25.125 -25.125 57.125 57.125"
+	 xml:space="preserve">
+<g id="background">
+	<rect fill="none" width="32" height="32"/>
+</g>
+<g id="user_x5F_profile_x5F_edit">
+	<path d="M-1.749,0.75c3.175,0,5.75-2.575,5.75-5.75s-2.575-5.75-5.75-5.75S-7.499-8.175-7.499-5S-4.924,0.75-1.749,0.75z
+		 M15.501-4.915v-12.184l-8.03-8.027h-26.47v46.001h34.5v-0.088C21.969,20.072,27,14.598,27,7.938
+		C27,1.278,21.969-4.199,15.501-4.915z M6.873-21.656L12.03-16.5H6.873V-21.656z M-16.124,18v-40.253H4.001v8.627h8.625v8.711
+		C7.627-4.362,3.501-0.963,1.878,3.625c-5.121,0-12.252,0-12.252,0s-2.875,0-2.875,2.875c0,1.438,0,8.625,0,8.625H3.309
+		C4.035,16.212,4.926,17.181,5.942,18H-16.124z M14.063,17.999C8.507,17.987,4.01,13.493,4.001,7.938
+		C4.01,2.381,8.507-2.116,14.063-2.125c5.556,0.009,10.051,4.506,10.062,10.062C24.114,13.493,19.619,17.987,14.063,17.999z"/>
+	<polygon points="12.625,13.688 8.312,13.688 8.312,9.375 	"/>
+	<rect x="10.418" y="3.45" transform="matrix(0.7071 -0.7071 0.7071 0.7071 -0.056 12.8638)" width="10.165" height="6.099"/>
+</g>
+<text transform="matrix(1 0 0 1 -21.375 31)" font-family="'MyriadPro-Bold'" font-size="10">Edit Profile</text>
+</svg>

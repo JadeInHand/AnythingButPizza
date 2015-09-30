@@ -1,3 +1,4 @@
+<hr>
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Categories from 
@@ -8,10 +9,13 @@
   <% end %>
 </h1>
 
+
 <% if @in_area.count == 0 %>
   <p>Sorry, no food is currently available in your area. Click <%= link_to 'here', items_path %> to see our other current yums! </p>
 <% end %>
 
+
+<div class="column column-4">
 <% @in_area.each do |thing| %>
   <% if thing.types %>
 
@@ -21,10 +25,12 @@
           <% unless item.active == false %>
             <% if item.category.types == thing.types  %>
               <li><%= link_to item.name, item_path(item.id) %></li>
+
             <% end %>
           <% end %>
         <% end %>
       </ul>
+      <hr>
     </div>
   <% end %>
 <% end %>
@@ -54,3 +60,5 @@
   <br>
   <%= link_to 'New Category', new_category_path %>
 <% end %>
+
+</div>

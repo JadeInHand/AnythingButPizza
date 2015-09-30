@@ -1,6 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<form action="">
 <p>
   <strong>Name:</strong>
   <%= @item.name %>
@@ -53,11 +52,14 @@
 
 <%= @shopping_cart %>
 
+<hr>
+
+
 <% unless @other_items.count == 0 %>
   <h2> Other Items by this Cook:</h2>
   <% @item.user.items.each do |item|  %>
     <% unless item.active == false %>
-      <%= link_to item.name, item_path %>
+      <%= link_to item.name, item_path %> |
     <% end %>
   <% end %>
 <% end %>
@@ -76,12 +78,16 @@
   <% unless @item.active == false %>
     <% unless @item.servings_left <= 0 %>
       <div class="price_line">
+
           <%= link_to 'Add to Cart', line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :quantity_purchased => 1, :cost => @item.cost}), {method: :post}%>
+
+        <%= form_tag line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :cost => @item.cost}), {method: :post} do %>
+          <%= number_field_tag :quantity, 1 %>
+          <%= button_tag 'Add to Cart'%>
+        <% end %>
       </div>
     <% end %>
   <% end %>
 <% end %>
 
-</form>
 
-<%= link_to 'Back', items_path %>
