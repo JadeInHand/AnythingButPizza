@@ -21,5 +21,5 @@
 <h2> Who's on their way?! : </h2>
 <% @on_the_way.each do |eater| %>
 	<%= link_to eater.name.capitalize, user_path(eater.id) %>
-	<%= image_tag eater.image, :class => "user-img" %>
+	<%= image_tag eater.image, :class => "ontheway-img" %>
 <% end %>

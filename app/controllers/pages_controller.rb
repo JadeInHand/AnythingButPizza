@@ -15,12 +15,13 @@ class PagesController < ApplicationController
   		end
   	end
     @on_the_way = []
-    # @my_items = LineItem.where(: )
-    @sold_items = LineItem.all
+    @sold_items = @current_user.items
     @sold_items.each do |thing|
-      if thing.seller_id == @current_user.id
-          @on_the_way << thing.shopping_cart.user
+      thing.line_items.each do |line_item|
+        @on_the_way << line_item.shopping_cart.user
       end
+      # end
     end
+    @on_the_way.uniq!
   end
 end

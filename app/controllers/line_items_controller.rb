@@ -59,7 +59,6 @@ class LineItemsController < ApplicationController
 
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])
-    binding.pry
     # @cart.update :total_cost => lineItem_details['cost']
     # @cart.update :total_cost => @line_item.cost
 
