@@ -53,6 +53,7 @@ class LineItemsController < ApplicationController
     @seller_id = item.user_id 
     lineItem_details["seller_id"] = @seller_id
 
+
     @line_item = LineItem.new lineItem_details
 
     # Update cart
