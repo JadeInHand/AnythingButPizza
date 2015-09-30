@@ -23,6 +23,8 @@ body {
 
 }
 
+
+/*SVG*/
 .svg {
 	width: 100px;
 	display:inline-block;
@@ -34,6 +36,8 @@ svg {
 svg:hover {
     fill: #fce57e;
 }
+
+/* PLACE HOLDER STYLE*/
 ::-webkit-input-placeholder {
    color: black;
 }
@@ -280,6 +284,13 @@ footer {
 
 @media screen and (max-width: 800px) {
 
+	.container {
+		margin-top: 30px;
+	}
+
+	.search {
+		margin-top: 100px;
+	}
 	.mobile-nav {
 		display: inline-block;
 	}
@@ -297,6 +308,8 @@ footer {
 	
 	top: 6px;
 	}	
+
+
 	
 
 
