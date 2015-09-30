@@ -74,7 +74,7 @@ svg:hover {
 
 .container {
 	
-	margin: 20px 40px auto 40px;
+	margin: 50px 40px auto 40px;
 	padding: 10px;
 	
 
@@ -217,8 +217,8 @@ div.title {
 
 .search {
 	text-align: center;
-	margin-top: 70px;
-	margin-bottom: -15px;
+	/*margin-top: 70px;
+	margin-bottom: -15px;*/
 }
 .search input[type=text] {    
     margin-top: 7px;
@@ -230,24 +230,20 @@ div.title {
     font-size: 12px;
     border-radius: 10px;
     border: none;
-    
     transition: all ease-in-out .3s;
     
 }
-
-placeholder { color: red; }
 
 .blue input[type=text] {
    width: 200px;
    background: rgba(15,170,228, 1);
 }
-.blue input[type=text]:focus
-{
-	
+.blue input[type=text]:focus {
   color:#0faae4;
   width: 400px;
   background:#fff;
 }
+
 .blue input[type=text]:hover {
 	box-shadow: 0px 2px 3px 0px rgba(0,0,0,0.25);
 }
@@ -329,7 +325,7 @@ footer {
 	border-left:1px solid #000;
 	height:70px;
 	}
-	
+
 	body > header > div.mobile-nav > div.responsive-menu.expand > ul > li:nth-child(2){ 
 		padding-right: 0px;
 		padding-left: 0px;
