@@ -44,6 +44,10 @@ class ShoppingCart < ActiveRecord::Base
 		counts
 	end
 
+	def seller_addresses
+		self.items.map { |item| item.user.address if item.user.present? }.uniq
+	end
+
   # if a shopping cart has been inactive for more than 20 minutes ( no payment made ), then it ceases to exist
 	def not_secure?(user)
    	  !user || 

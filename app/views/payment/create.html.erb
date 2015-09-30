@@ -3,5 +3,9 @@
 
 <!-- google api used to provide directions to the user where to go and pick up the food -->
 <h2> Go to this address to pick up your food! </h2>
-<h3> <%= @li.item.user.address %> </h3>
+
+<% @all_addresses.each do |address| %>
+	<h3><%= address %></h3>
+<% end %>
+
 <div class="map-canvas"></div>
