@@ -1,6 +1,14 @@
 
+
 <hr>
 <div class="row">
+
+<% unless @past_yums.empty? %>
+	<h2> Past Yums </h2>
+	<% @past_yums.each do |yum| %>
+		<%= link_to yum.name, item_path(yum.id) %>
+	<% end %>
+<% end %>
 
 	<div class="column column-4">
 	<h1> Current Yums </h1>
@@ -19,8 +27,6 @@
 		<% end %>
 	
 	<br>
-	<br>
-
 		<% if @current_user.address == "" %>
 			<%= link_to "Add New YUM!", new_item_path, :data => {:confirm => "Must have current address in order to create a new item"} %>
 		<% else %>
@@ -35,4 +41,10 @@
 <% @on_the_way.each do |eater| %>
 	<%= link_to eater.name.capitalize, user_path(eater.id) %>
 	<%= image_tag eater.image, :class => "ontheway-img" %>
+<% unless @on_the_way.empty? %>
+	<h2> Who's on their way?! : </h2>
+	<% @on_the_way.each do |array| %>
+		<% correct_word = pluralize(array[3], array[2]) %>
+		<p><%= link_to array[0].capitalize, user_path(array[1]) %> for <%= correct_word %>.</p>
+	<% end %>
 <% end %>
