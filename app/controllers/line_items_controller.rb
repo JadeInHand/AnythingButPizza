@@ -50,6 +50,7 @@ class LineItemsController < ApplicationController
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
+    lineItem_details["seller_id"] = item.user_id
 
     @line_item = LineItem.new lineItem_details
 
@@ -102,7 +103,7 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost)
+      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost, :seller_id)
     end
 end
 

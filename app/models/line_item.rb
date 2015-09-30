@@ -9,6 +9,7 @@
 #  cost               :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  seller_id          :integer
 #
 
 class LineItem < ActiveRecord::Base
