@@ -57,9 +57,9 @@
 
 <% unless @other_items.count == 0 %>
   <h2> Other Items by this Cook:</h2>
-  <% @item.user.items.each do |item|  %>
+  <% @other_items.each do |item|  %>
     <% unless item.active == false %>
-      <%= link_to item.name, item_path %> |
+      <%= link_to item.name, item_path(item.id) %> |
     <% end %>
   <% end %>
 <% end %>
@@ -86,6 +86,6 @@
       <% end %>
     <% end %>
   <% end %>
-<% end %>
+
 
 

@@ -13,6 +13,9 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
+    
+    redirect_to login_path if @current_user.nil?
+  
     @item = Item.find params[:id]
 
     # initializing an empty array
