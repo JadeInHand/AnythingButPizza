@@ -5,10 +5,11 @@
 #  id                 :integer          not null, primary key
 #  item_id            :integer
 #  shopping_cart_id   :integer
-#  quantity_purchased :integer          default(0)
+#  quantity_purchased :integer
 #  cost               :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  seller_id          :integer
 #
 
 class LineItem < ActiveRecord::Base
