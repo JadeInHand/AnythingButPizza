@@ -17,14 +17,17 @@ class PagesController < ApplicationController
   	end
     @on_the_way = []
     @whats_ordered = []
-    @items.each do |item|
-      @whats_ordered << item.line_items if !item.line_items.empty?
+    unless @items.nil?
+      @items.each do |item|
+        @whats_ordered << item.line_items if !item.line_items.empty?
+      end
     end
 
-    @whats_ordered[0].each do |order|
-      @on_the_way << [(User.find order.shopping_cart.user_id).name, order.shopping_cart.user_id, order.item.name, order.quantity_purchased]
+    unless @whats_ordered.empty?
+      @whats_ordered[0].each do |order|
+        @on_the_way << [(User.find order.shopping_cart.user_id).name, order.shopping_cart.user_id, order.item.name, order.quantity_purchased]
+      end
     end
-
 
 
   #   @sold_items = @sold_items.
