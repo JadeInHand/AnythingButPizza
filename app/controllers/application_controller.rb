@@ -21,10 +21,12 @@ class ApplicationController < ActionController::Base
   end
 
   def destroy_shopping_cart
-    if session[:shopping_cart_id]
+    if session[:shopping_cart_id].present?
       @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
-      @shopping_cart.destroy if @shopping_cart.not_secure?
-      session[:shopping_cart_id] = nil
+      if @shopping_cart.not_secure?( @current_user )
+        @shopping_cart.destroy
+        session[:shopping_cart_id] = nil
+      end
     end
   end
 end

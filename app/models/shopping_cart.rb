@@ -35,9 +35,9 @@ class ShoppingCart < ActiveRecord::Base
      	return
   	end
 
-	def not_secure?
-   	    !@current_user ||
-    	session[:created_at].nil? ||
-    	(Time.now - session[:created_at] > (60 * 20) )
+	def not_secure?(user)
+   	    !user ||
+    	created_at.nil? ||
+    	(Time.now - created_at > (60 * 20) )
   	end
 end

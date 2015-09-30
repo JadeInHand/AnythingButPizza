@@ -49,6 +49,7 @@ class LineItemsController < ApplicationController
     end
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
     @seller_id = item.user_id 
     lineItem_details["seller_id"] = @seller_id
@@ -58,6 +59,7 @@ class LineItemsController < ApplicationController
 
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])
+    binding.pry
     # @cart.update :total_cost => lineItem_details['cost']
     # @cart.update :total_cost => @line_item.cost
 
