@@ -40,7 +40,7 @@ class LineItemsController < ApplicationController
   # POST /line_items.json
   def create
     lineItem_details = line_item_params
-   item = Item.find_by(:id => lineItem_details['item_id'])
+    item = Item.find_by(:id => lineItem_details['item_id'])
     
     if ( !session[:shopping_cart_id]  || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
