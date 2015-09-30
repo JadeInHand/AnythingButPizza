@@ -16,6 +16,7 @@ class SessionsController < ApplicationController
   # deleting a user session when the current user logs out
   def destroy
     session[:user_id] = nil
+    session[:shopping_cart_id] = nil
     redirect_to root_path
   end
 end
