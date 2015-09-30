@@ -6,12 +6,16 @@ class PaymentController < ApplicationController
   end
 
   def create
+    
+    # @li = LineItem.find_by(:shopping_cart_id => session[:shopping_cart_id])
+    
     # cook's address where the buyer is redirected ( by google maps ) to collect food once his payment is done
-    @li = LineItem.find_by(:shopping_cart_id => session[:shopping_cart_id])
-    gon.address = @li.item.user.address
+    gon.address = ShoppingCart.find(session[:shopping_cart_id]).seller_addresses
+    @all_addresses = gon.address
 
     # Amount in cents is paid to ABP
     @amount = ShoppingCart.find(session[:shopping_cart_id]).total_cost * 100
+
 
     customer = Stripe::Customer.create(
       :email => 'example@stripe.com',
