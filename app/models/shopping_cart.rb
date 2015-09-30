@@ -25,6 +25,15 @@ class ShoppingCart < ActiveRecord::Base
 		end
 		total
 	end
+	
+	def summary
+        counts = {}
+        self.line_items.each do |li|
+            counts[li.item.name] = 0 if counts[li.item.name].nil?
+            counts[li.item.name] += li.quantity_purchased
+        end
+        counts
+    end
 
 	def summary
 		counts = {}
