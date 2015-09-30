@@ -9,11 +9,10 @@
 #  cost               :integer
 #  created_at         :datetime         not null
 #  updated_at         :datetime         not null
+#  seller_id          :integer
 #
 
 class LineItem < ActiveRecord::Base
 	belongs_to :shopping_cart
 	belongs_to :item
-
-	
 end

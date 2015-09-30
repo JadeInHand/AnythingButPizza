@@ -32,14 +32,12 @@ class UsersController < ApplicationController
   # POST /users
   # POST /users.json
   def create
-    
-    user_details = user_params
-    
+    user_details = user_params 
+    # Using cloudinary to upload user profile pics
     if params[:file]
         response = Cloudinary::Uploader.upload params[:file]
         user_details["image"] = response["url"]
-    end
-    
+    end 
     @user = User.new user_details
 
     respond_to do |format|
@@ -57,19 +55,15 @@ class UsersController < ApplicationController
   # PATCH/PUT /users/1
   # PATCH/PUT /users/1.json
   def update
-
     @user = @current_user
     user_details = user_params
-
-
     if params[:file]
         response = Cloudinary::Uploader.upload params[:file]
         user_details["image"] = response["url"]
     end
-
-    
+ 
     respond_to do |format|
-      if @user.update(user_params)
+      if @user.update(user_details)
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

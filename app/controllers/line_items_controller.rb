@@ -13,34 +13,38 @@ class LineItemsController < ApplicationController
   end
 
   # GET /line_items/new
+  
   def new
-    lineItem_details = line_item_params
-    
+    lineItem_details = line_item_params 
+    # Creates a new line item and a new shopping cart if neither exist. Passes the shopping cart id as a session variable
+    raise 'params'
     if ( !session[:shopping_cart_id] || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
       @shopping_cart.save
       session[:shopping_cart_id] = @shopping_cart.id
     end
-     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
 
-     @line_item = LineItem.new lineItem_details
+    @line_item = LineItem.new lineItem_details
 
+
+    # New line items added to an already existing shopping cart
+    @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    lineItem_details["shopping_cart_id"] = @shopping_cart.id
+    @line_item = LineItem.new lineItem_details
   end
 
   # GET /line_items/1/edit
   def edit
-    # item_creator = Item.find_by(:id => params[:id])
-    # unless @current_user && @current_user.id == item_creator.user_id
-    #   redirect_to root_path
-    # end
   end
 
   # POST /line_items
   # POST /line_items.json
   def create
     lineItem_details = line_item_params
-   item = Item.find_by(:id => lineItem_details['item_id'])
+    item = Item.find_by(:id => lineItem_details['item_id'])
+
     
     if ( !session[:shopping_cart_id]  || !ShoppingCart.find(session[:shopping_cart_id]).active )
       @shopping_cart = ShoppingCart.new(:user_id => @current_user.id, :active => true)
@@ -50,13 +54,16 @@ class LineItemsController < ApplicationController
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
+    lineItem_details["quantity_purchased"] = params[:quantity]
+
+
+    @seller_id = item.user_id 
+    lineItem_details["seller_id"] = @seller_id
 
     @line_item = LineItem.new lineItem_details
 
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])
-    # @cart.update :total_cost => lineItem_details['cost']
-    # @cart.update :total_cost => @line_item.cost
 
 
     respond_to do |format|
@@ -102,10 +109,6 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost)
+      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost, :seller_id)
     end
 end
-
-
-
-

@@ -1,7 +1,9 @@
 <!-- login screen for existing users -->
-<h2>Login</h2>
+
  
 <%= form_tag '/login', :class => 'form-inline' do %>
+<h2>Login</h2>
+<hr>
     <div class="form-group">
         <%= label_tag :email %>
         <%= text_field_tag :email, nil, :class=> "form-control"  %>

@@ -1,14 +1,11 @@
 <p id="notice"><%= notice %></p>
 
-
-<% @line_items.each do |lineitem| %>
-	<% if lineitem.shopping_cart_id == @shopping_cart.id %>
-		<p><%= lineitem.item.name %>: <%= lineitem.quantity_purchased %>: $<%= lineitem.item.cost %></p>
-		<% end %>
-<% end %>
+<!-- line items and quantity -->
+<% @shopping_cart.summary.each {|lineitem, quantity| %>
+	<p><%= pluralize(quantity, lineitem) %></p> <% } %>
 <p>
   <strong>Total Cost:</strong>
-  <%= @shopping_cart.total_cost %>
+  $<%= @shopping_cart.total_cost %>
 </p>
 <p>
   <strong>User:</strong>
@@ -19,7 +16,6 @@
 <%= link_to 'Back', shopping_carts_path %>
 
 <form>
-
+<!-- payment link -->
 <%= link_to 'Pay', '/payment/new'%>
-
 </form>
