@@ -53,8 +53,9 @@ ActiveRecord::Schema.define(version: 20150930003118) do
     t.integer  "order_number"
     t.integer  "user_id"
     t.boolean  "active"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
+    t.boolean  "paid",         default: false
+    t.datetime "created_at",                   null: false
+    t.datetime "updated_at",                   null: false
   end
 
   create_table "users", force: :cascade do |t|

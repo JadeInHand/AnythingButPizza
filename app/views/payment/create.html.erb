@@ -1,9 +1,7 @@
+<!-- display message confirms the amount paid by a user -->
 <h2>Thanks, you paid <strong> $<%= ShoppingCart.find(session[:shopping_cart_id]).total_cost %></strong></h2>
 
+<!-- google api used to provide directions to the user where to go and pick up the food -->
 <h2> Go to this address to pick up your food! </h2>
 <h3> <%= @li.item.user.address %> </h3>
 <div class="map-canvas"></div>
-
-
-
-
