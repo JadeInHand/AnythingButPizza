@@ -14,6 +14,10 @@ class PagesController < ApplicationController
   			@past_yums << thing
   		end
   	end
+
+    # pickup_user = @current_user
+    # gon.pickupUser = pickup_user
+
   end
 
 end

@@ -181,9 +181,9 @@ DEPENDENCIES
   byebug
   cloudinary
   coffee-rails (~> 4.1.0)
+  dotenv-rails
   geocoder
   gon
-  dotenv-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
