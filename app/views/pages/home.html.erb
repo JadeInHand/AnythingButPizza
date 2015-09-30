@@ -5,7 +5,7 @@
 	
 	<h1>Anything But Pizza</h1>
 	<hr>
-	<p><img class="svg" src="/assets/svg/cut.svg" alt=""></p>
+	<p><%= image_tag 'svg/cut.svg', class: 'svg' %></p>
 	<hr>
 	<h3> About Us: We love helping bring the community together by asking you to feed them. </h3>
 </div>
@@ -15,7 +15,7 @@
 
 	<h1> SOME THINGS COOKING </h1>
 	<hr>
-	<p><img class="svg" src="/assets/svg/cut.svg" alt=""></p>
+	<p><%= image_tag 'svg/cut.svg', class: 'svg' %></p>
 	<hr>
 	
 		<% @top5[0..4].each do |top| %>
@@ -33,7 +33,7 @@
 	<% unless @current_user.present? %>
 		<h1> SIGN UP  </h1>
 		<hr>
-		<p><img class="svg" src="/assets/svg/cut.svg" alt=""></p>
+		<p><%= image_tag 'svg/cut.svg', class: 'svg' %></p>
 		<hr>
 		<%= link_to "Signup", new_user_path %>
 	<% end %>
