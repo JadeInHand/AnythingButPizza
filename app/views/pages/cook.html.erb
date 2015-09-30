@@ -36,14 +36,15 @@
 		<% end %>
 	
 	<br>
-		<% if @current_user.address == "" %>
-			<br>
-			<%= link_to "Add New YUM!", new_item_path, :data => {:confirm => "Must have current address in order to create a new item"} %>
-		<% else %>
-			<br>
-			<%= link_to "Add New YUM!", new_item_path %>
-		<% end %>
+	<% if @current_user.address == "" %>
+		<br>
+		<%= link_to "Add New YUM!", new_item_path, :data => {:confirm => "Must have current address in orderto create a new item"} %>
+	<% else %>
+		<br>
+		<%= link_to "Add New YUM!", new_item_path %>
+	<% end %>
 	</div>
+
 	<div class="column column-4">
 		<h2> Who's on their way?! : </h2>
 		<% if @on_the_way.empty? %>
@@ -56,5 +57,6 @@
 				<% end %>
 			<% end %>
 		<% end %>
+
 	</div>
 </div>
