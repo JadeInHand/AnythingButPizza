@@ -8,6 +8,9 @@
   <% end %>
 </h1>
 
+<% if @in_area.count == 0 %>
+  <p>Sorry, no food is currently available in your area. Click <%= link_to 'here', items_path %> to see our other current yums! </p>
+<% end %>
 
 <% @in_area.each do |thing| %>
   <% if thing.types %>
@@ -23,7 +26,6 @@
         <% end %>
       </ul>
     </div>
-    
   <% end %>
 <% end %>
 

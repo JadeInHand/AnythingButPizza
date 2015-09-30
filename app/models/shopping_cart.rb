@@ -14,6 +14,7 @@
 
 class ShoppingCart < ActiveRecord::Base
 	has_many :line_items
+	has_many :items, :through => :line_items
 	belongs_to :user
 	
 	# calculates the total cost pertaining to each item on a shopping cart
@@ -23,6 +24,10 @@ class ShoppingCart < ActiveRecord::Base
 			total += (item.cost * item.quantity_purchased)
 		end
 		total
+	end
+
+	def seller_addresses
+		self.items.map { |item| item.user.address if item.user.present? }.uniq
 	end
 
   # if a shopping cart has been inactive for more than 20 minutes ( no payment made ), then it ceases to exist

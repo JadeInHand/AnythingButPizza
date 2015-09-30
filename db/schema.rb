@@ -39,10 +39,10 @@ ActiveRecord::Schema.define(version: 20150929232440) do
   create_table "line_items", force: :cascade do |t|
     t.integer  "item_id"
     t.integer  "shopping_cart_id"
-    t.integer  "quantity_purchased"
+    t.integer  "quantity_purchased", default: 0
     t.integer  "cost"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
     t.integer  "seller_id"
   end
 

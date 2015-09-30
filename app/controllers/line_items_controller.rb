@@ -41,6 +41,7 @@ class LineItemsController < ApplicationController
   # POST /line_items
   # POST /line_items.json
   def create
+
     lineItem_details = line_item_params
     item = Item.find_by(:id => lineItem_details['item_id'])
     
@@ -60,6 +61,12 @@ class LineItemsController < ApplicationController
 
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])
+
+
+    # @li = LineItem.find_by(:shopping_cart_id => session[:shopping_cart_id])
+    
+    # gon.address = []
+    # gon.address << @li.item.user.address
 
 
     respond_to do |format|
