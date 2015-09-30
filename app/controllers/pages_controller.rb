@@ -14,6 +14,17 @@ class PagesController < ApplicationController
   			@past_yums << thing
   		end
   	end
+    @on_the_way = []
+    @sold_items = @current_user.items
+    @sold_items.each do |thing|
+      thing.line_items.each do |line_item|
+        if line_item.shopping_cart.active == false
+          if line_item.shopping_cart.paid == true
+            @on_the_way << line_item.shopping_cart.user
+          end
+        end
+      end
+    end
+    @on_the_way.uniq!
   end
-
 end

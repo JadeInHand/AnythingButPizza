@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 
-
+<!-- line items and quantity -->
 <% @line_items.each do |lineitem| %>
 	<% if lineitem.shopping_cart_id == @shopping_cart.id %>
 		<p><%= lineitem.item.name %>: <%= lineitem.quantity_purchased %>: $<%= lineitem.item.cost %></p>
@@ -19,7 +19,6 @@
 <%= link_to 'Back', shopping_carts_path %>
 
 <form>
-
+<!-- payment link -->
 <%= link_to 'Pay', '/payment/new'%>
-
 </form>

@@ -5,6 +5,7 @@ class CreateShoppingCarts < ActiveRecord::Migration
       t.integer :order_number
       t.integer :user_id
       t.boolean :active
+      t.boolean :paid, default: false
 
       t.timestamps null: false
     end
