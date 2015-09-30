@@ -14,6 +14,7 @@
 
 class ShoppingCart < ActiveRecord::Base
 	has_many :line_items
+	has_many :items, :through => :line_items
 	belongs_to :user
 	
 	# calculates the total cost pertaining to each item on a shopping cart
