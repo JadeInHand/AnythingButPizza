@@ -7,11 +7,13 @@
 	<% @yum_items.each do |yum| %>
 		<%= link_to yum.name, item_path(yum.id) %>
 		<p> Number of Servings left : <%= yum.servings %> </p>
+		<hr>
 	<% end %>
+
 	</div>
 	<div class="column column-4">
 
-	<img class="svg" src="/assets/chef.svg" alt="">
+	
 
 	<h2> Past Yums </h2>
 		<% @past_yums.each do |yum| %>
