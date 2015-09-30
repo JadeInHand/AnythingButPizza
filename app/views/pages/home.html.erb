@@ -1,9 +1,7 @@
 <div class="row homepage">
 
 <div class="column column-4">
-	<% if @current_user.present? %>
-		<%= link_to "Past Orders", user_path(@current_user) %>
-	<% end %>
+	
 	
 	<h1>Anything But Pizza</h1>
 	<hr>
@@ -13,10 +11,7 @@
 </div>
 
 <div class="column column-4">
-	<% if @current_user.present? %>
-		<h1> In your area! : </h1>
-		<p><%= link_to "Categories", categories_path %></p>
-	<% end %>
+	
 
 	<h1> SOME THINGS COOKING </h1>
 	<hr>
@@ -30,6 +25,11 @@
 </div>
 
 <div class="column column-4">
+	<% if @current_user.present? %>
+		<h1> In your area! : </h1>
+		<hr>
+		<p><%= link_to "Categories", categories_path %></p>
+	<% end %>
 	<% unless @current_user.present? %>
 		<h1> SIGN UP  </h1>
 		<hr>
@@ -37,6 +37,10 @@
 		<hr>
 		<%= link_to "Signup", new_user_path %>
 	<% end %>
+	<% if @current_user.present? %>
+		<p><%= link_to "Past Orders", user_path(@current_user) %></p>
+	<% end %>
 </div>
 
+	
 </div>
