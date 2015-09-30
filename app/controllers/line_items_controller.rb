@@ -27,6 +27,7 @@ class LineItemsController < ApplicationController
 
     @line_item = LineItem.new lineItem_details
 
+
     # New line items added to an already existing shopping cart
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
@@ -51,6 +52,7 @@ class LineItemsController < ApplicationController
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
+
     @seller_id = item.user_id 
     lineItem_details["seller_id"] = @seller_id
 
