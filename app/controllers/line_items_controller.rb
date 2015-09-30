@@ -21,10 +21,10 @@ class LineItemsController < ApplicationController
       @shopping_cart.save
       session[:shopping_cart_id] = @shopping_cart.id
     end
-     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
+    @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
 
-     @line_item = LineItem.new lineItem_details
+    @line_item = LineItem.new lineItem_details
 
   end
 
@@ -50,6 +50,8 @@ class LineItemsController < ApplicationController
 
     @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
+    @seller_id = item.user_id 
+    lineItem_details["seller_id"] = @seller_id
 
     @line_item = LineItem.new lineItem_details
 
@@ -102,7 +104,7 @@ class LineItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def line_item_params
-      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost)
+      params.require(:line_item).permit(:item_id, :shopping_cart_id, :quantity_purchased, :cost, :seller_id)
     end
 end
 
