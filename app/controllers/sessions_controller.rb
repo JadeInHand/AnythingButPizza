@@ -13,7 +13,7 @@ class SessionsController < ApplicationController
       end
   end
 
-  # deleting a user session when the current user logs out
+  # deleting a user session and the shopping cart session if the user created one, and did not use it before logging out
   def destroy
     session[:user_id] = nil
     session[:shopping_cart_id] = nil

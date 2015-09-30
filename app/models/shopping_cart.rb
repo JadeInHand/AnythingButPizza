@@ -7,18 +7,17 @@
 #  order_number :integer
 #  user_id      :integer
 #  active       :boolean
+#  paid         :boolean          default(FALSE)
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null
 #
 
 class ShoppingCart < ActiveRecord::Base
-	#extend ActiveModel::Callbacks
 	has_many :line_items
 	belongs_to :user
-	#before_filter :require_secure
-    #define_model_callbacks :require_secure
-
-	def total_cost
+	
+	# calculates the total cost pertaining to each item on a shopping cart
+  def total_cost
 		total = 0
 		self.line_items.each do |item|
 			total += (item.cost * item.quantity_purchased)
@@ -26,18 +25,10 @@ class ShoppingCart < ActiveRecord::Base
 		total
 	end
 
-  	def require_secure
-  		if not_secure?
-  			sc = ShoppingCart.find(session[:shopping_cart_id])
-  			sc.destroy
-     		redirect_to login_path 
-     	end
-     	return
-  	end
-
+  # if a shopping cart has been inactive for more than 20 minutes ( no payment made ), then it ceases to exist
 	def not_secure?(user)
-   	    !user ||
-    	created_at.nil? ||
-    	(Time.now - created_at > (60 * 20) )
-  	end
+   	  !user || 
+      created_at.nil? || 
+      (Time.now - created_at > (60 * 20) )
+  end
 end

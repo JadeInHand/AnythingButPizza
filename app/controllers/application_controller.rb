@@ -20,6 +20,7 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  # Calls the function to destroy a shopping cart if the shopping cart has been inactive for more than 20 minutes
   def destroy_shopping_cart
     if session[:shopping_cart_id].present?
       @shopping_cart = ShoppingCart.find(session[:shopping_cart_id])

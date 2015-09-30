@@ -22,6 +22,7 @@ class Item < ActiveRecord::Base
 	belongs_to :user
 	belongs_to :category
 
+	# Once the servings of an item becomes 0, it is made inactive
 	def is_active 
 		if self.servings == 0
 			self.active = false
@@ -29,6 +30,7 @@ class Item < ActiveRecord::Base
 		active
 	end
 
+	# Each time a user adds an item to his/her cart, the quantity left on the items page is made to decrease by 1
 	def servings_left
   		remaining = self.servings
   		self.line_items.each do |line_item|
