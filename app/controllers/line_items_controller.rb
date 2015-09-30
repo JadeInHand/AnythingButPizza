@@ -59,6 +59,7 @@ class LineItemsController < ApplicationController
     # Update cart
     @cart = ShoppingCart.find(session[:shopping_cart_id])
 
+
     respond_to do |format|
       if @line_item.save
         format.html { redirect_to shopping_cart_path(session[:shopping_cart_id]), notice: 'Line item was successfully created.' }
