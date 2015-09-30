@@ -12,10 +12,11 @@
 #
 
 class ShoppingCart < ActiveRecord::Base
+	#extend ActiveModel::Callbacks
 	has_many :line_items
 	belongs_to :user
-	before_filter :require_secure
-
+	#before_filter :require_secure
+    #define_model_callbacks :require_secure
 
 	def total_cost
 		total = 0
@@ -35,8 +36,8 @@ class ShoppingCart < ActiveRecord::Base
   	end
 
 	def not_secure?
-   	    !current_user ||
+   	    !@current_user ||
     	session[:created_at].nil? ||
     	(Time.now - session[:created_at] > (60 * 20) )
-  end
+  	end
 end
