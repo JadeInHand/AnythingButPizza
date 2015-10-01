@@ -6,40 +6,64 @@ $(document).ready(function() {
 	}
 
 	var userAddress = gon.address;
+	var infowindow = new google.maps.InfoWindow();
+	var latlng = new google.maps.LatLng(21.0000, 78.0000);
 
-	var mapCanvas = document.getElementsByClassName('map-canvas')[0];
+	var mapOptions = {
+		zoom: 5,
+		center: latlng,
+		mapTypeId: google.maps.MapTypeId.ROADMAP
+	};
+
 	var geocoder = new google.maps.Geocoder();
+	var map = new google.maps.Map(document.getElementsByClassName('map-canvas')[0], mapOptions);
+	var bounds = new google.maps.LatLngBounds();
 
-	geocoder.geocode ({ 'address': userAddress }, function(results, status) {
+	function geocodeAddress(address, next) {
+		geocoder.geocode({address:address}, function (results,status) {
+			if (status == google.maps.GeocoderStatus.OK) {
+				var p = results[0].geometry.location;
+				var lat=p.lat();
+				var lng=p.lng();
+				createMarker(address,lat,lng);
+			} else {
+				if (status == google.maps.GeocoderStatus.OVER_QUERY_LIMIT) {
+					nextAddress--;
+				} else {
 
-		if (status === google.maps.GeocoderStatus.OK) {
-			var latitude = results[0].geometry.location.lat();
-			var longitude = results[0].geometry.location.lng();
+				}
+			}
+			next();
+		});
+	};
 
-			var mapOptions = {
-				center: new google.maps.LatLng(latitude, longitude),
-				zoom: 12,
-				mapTypeId: google.maps.MapTypeId.ROADMAP
-			};
 
-			var map = new google.maps.Map(mapCanvas, mapOptions);
+	function createMarker(add,lat,lng) {
+		var contentString = add;
+		var marker = new google.maps.Marker({
+			position: new google.maps.LatLng(lat,lng),
+			map: map
+		});
 
-			var marker = new google.maps.Marker({
-				position: {lat: latitude, lng: longitude},
-				map: map,
-				label: 'M'
-			});
+		google.maps.event.addListener(marker, 'click', function() {
+			infowindow.setContent(contentString); 
+			infowindow.open(map,marker);
+   		});
 
-			var infowindow = new google.maps.InfoWindow({
-				content: userAddress
-			});
+		bounds.extend(marker.position);	
+	};
 
-			marker.addListener('click', function() {
-				infowindow.open(map, marker);
-			});
+	var nextAddress = 0;
+	function theNext() {
+		if (nextAddress < userAddress.length) {
+			geocodeAddress(userAddress[nextAddress], theNext);
+			nextAddress++;
+		} else {
+			map.fitBounds(bounds);
 		}
-	});
+	}
 
+	theNext();
 });
 
  	
