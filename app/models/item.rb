@@ -36,6 +36,9 @@ class Item < ActiveRecord::Base
   		self.line_items.each do |line_item|
   			remaining -= (line_item.quantity_purchased) if line_item.shopping_cart && line_item.shopping_cart.active
   		end
+  		if remaining <= 0
+  			self.active = false
+  		end
   		remaining
 	end
 end
