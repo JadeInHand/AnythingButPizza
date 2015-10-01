@@ -39,7 +39,7 @@
 		<%= link_to "Signup", new_user_path %>
 	<% end %>
 	<% if @current_user.present? %>
-		<p><%= link_to "Past Orders", user_path(@current_user) %></p>
+		<p><%= link_to "Your Past Orders and Yums", user_path(@current_user) %></p>
 	<% end %>
 </div>
 

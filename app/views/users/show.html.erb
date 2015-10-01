@@ -18,7 +18,10 @@
 
 <p>
   <strong>Past Orders:</strong>
-  <%=  %>
+
+  <% @current_user.shopping_carts.each do |sc| %>
+    <%= sc.items.name %>
+  <% end %>
 </p>
 
 <p>
