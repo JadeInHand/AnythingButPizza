@@ -56,10 +56,6 @@ class LineItemsController < ApplicationController
     lineItem_details["shopping_cart_id"] = @shopping_cart.id
     lineItem_details["quantity_purchased"] = params[:quantity]
 
-
-    @seller_id = item.user_id 
-    lineItem_details["seller_id"] = @seller_id
-
     @line_item = LineItem.new lineItem_details
 
     # Update cart
