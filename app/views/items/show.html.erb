@@ -37,7 +37,7 @@
 
 <p>
   <strong>Cook:</strong>
-  <%= @item.user.name %>
+  <%= link_to @item.user.name, user_path(@item.user.id) %>
 </p>
 
 <p>
