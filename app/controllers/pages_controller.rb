@@ -20,17 +20,17 @@ class PagesController < ApplicationController
     @whats_ordered = []
     unless @items.nil?
       @items.each do |item|
-        @whats_ordered << item.line_items if !item.line_items.empty?
+        @whats_ordered << item.line_items unless item.line_items.empty?
       end
     end
 
-    unless @whats_ordered.empty?
-      @whats_ordered[0].each do |order|
+    @whats_ordered.each do |orders|
+      orders.each do |order|
         unless order.shopping_cart.nil?
           @on_the_way << [(User.find order.shopping_cart.user_id).name, order.shopping_cart.user_id, order.item.name, order.quantity_purchased]
         end
       end
     end
-
+    
   end
 end

@@ -41,10 +41,9 @@
 			<p> No one due to arrive for some Yums </p>
 		<% else %>
 			<% @on_the_way.each do |eater| %>
-				<% @on_the_way.each do |array| %>
-					<% correct_word = pluralize(array[3], array[2]) %>
-					<p><%= link_to array[0].capitalize, user_path(array[1]) %> for <%= correct_word %>.</p>
-				<% end %>
+				<% correct_word = pluralize(eater[3], eater[2]) %>
+				<p><%= link_to eater[0].capitalize, user_path(eater[1]) %> for <%= correct_word %>.</p>
+				
 			<% end %>
 		<% end %>
 
