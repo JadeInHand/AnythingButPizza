@@ -19,7 +19,7 @@
 	<hr>
 	
 	<% @top5[0..4].each do |top| %>
-		<p><%= link_to "#{top.name} from postcode #{top.user.postcode}", item_path(top) %></p>
+		<p><%= link_to "#{top.name if top.name} from postcode #{top.user.postcode if top.user}", item_path(top) %></p>
 	<% end %>
 	
 </div>
