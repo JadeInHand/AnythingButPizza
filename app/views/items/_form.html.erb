@@ -18,11 +18,11 @@
   </div>
   <div class="field">
     <%= f.label :servings %><br>
-    <%= f.number_field :servings %>
+    <%= f.number_field :servings, :min => 1 %>
   </div>
   <div class="field">
     <%= f.label :cost %><br>
-    <%= f.text_field :cost %>
+    <%= f.number_field :cost, :min => 1 %>
   </div>
   <div class="field">
     <%= f.label :description %><br> 
