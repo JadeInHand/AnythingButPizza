@@ -40,10 +40,12 @@
 		<% if @on_the_way.empty? %>
 			<p> No one due to arrive for some Yums </p>
 		<% else %>
+			<p> Click when delivery is done </p>
 			<% @on_the_way.each do |eater| %>
 				<% correct_word = pluralize(eater[3], eater[2]) %>
-				<p><%= link_to eater[0].capitalize, user_path(eater[1]) %> for <%= correct_word %>.</p>
-				
+				<ul class="done">
+                    <li class="done"><%= link_to eater[0].capitalize, user_path(eater[1]) %> for <%= correct_word %>.</li>
+                </ul>
 			<% end %>
 		<% end %>
 

@@ -15,6 +15,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @yums_by_me = Item.where(:user_id => params[:id])
+    @yums_eaten = LineItem.where(:shopping_cart_id => (ShoppingCart.where(:user_id => @current_user.id)))
   end
 
   # GET /users/new

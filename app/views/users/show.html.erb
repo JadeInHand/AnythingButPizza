@@ -16,8 +16,8 @@
 <p>
   <strong>Past Orders:</strong>
 
-  <% @current_user.shopping_carts.each do |sc| %>
-    <%= sc.items.name %>
+  <% @yums_eaten.each do |sc| %>
+    <%= sc.item.name %>
   <% end %>
 </p>
 

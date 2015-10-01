@@ -22,4 +22,7 @@ $(document).ready(function() {
      	     
      	     });
          });
+  	$(".done").on('click', function(){
+           $(this).closest('li').remove();
+    });
 });
