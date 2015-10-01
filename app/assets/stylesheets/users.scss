@@ -2,11 +2,18 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.user-form {
+    margin-top: 10px;
+}
+
+.container-also {
+    margin-top: -50px;
+}
 .field {
-	width: 300px;
+	width: 400px;
 	background-color: rgba(230,230,230, .25);
 	padding: 10px;
-	
 
 	
 
@@ -14,7 +21,7 @@
 
 .field label {
 	font-size: 2em;
-	min-width: 115px;
+	
 }
 
 .field input {

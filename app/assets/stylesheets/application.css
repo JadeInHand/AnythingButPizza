@@ -18,20 +18,9 @@
 
 body {
 	height: 100%;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    background: rgba(15,170,255,.1);
-  background: -webkit-linear-gradient(top, rgba(15,170,255,.1) 0%, rgba(2,163,200,.1) 100%);
-  background: linear-gradient(to bottom, rgba(15,170,255,.1) 0%, rgba(2,163,200,.1) 100%);
-	
 	font-family: "Roboto", sans-serif;
 	margin: auto;
 	padding: 0px;	
-
-
-
 }
 
 
@@ -64,7 +53,7 @@ svg:hover {
 
 .container {
 	
-	margin: 10px 40px auto 40px;
+	margin: 50px 40px auto 40px;
 	padding: 10px;
 	
 
@@ -230,7 +219,6 @@ div.title {
 }
 .blue input[type=text]:focus {
   color:#0faae4;
-  width: 400px;
   background:#fff;
 }
 
@@ -286,15 +274,23 @@ footer {
 	
 }
 
+@media screen and (max-width: 978px) {
+	
+
+}
 
 @media screen and (max-width: 800px) {
+	#nav-search-btn {
+		display: none;
+	}
 
 	.container {
-		margin-top: 30px;
+		margin-top: 100px;
 	}
 
 	.search {
-		margin-top: 100px;
+		    margin-top: 23px;
+		
 	}
 	.mobile-nav {
 		display: inline-block;
@@ -416,7 +412,7 @@ footer {
     margin-left: 0;
 }
 
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 800px) {
     .column-1, 
     .column-2, 
     .column-3, 
@@ -480,7 +476,7 @@ footer {
   padding-top: 100px;
 }
 */
-@media only screen and (max-width: 550px) {
+@media only screen and (max-width: 800px) {
     .row {
         margin-bottom: 0;
     }
