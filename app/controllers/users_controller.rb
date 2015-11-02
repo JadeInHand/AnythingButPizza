@@ -58,6 +58,7 @@ class UsersController < ApplicationController
   def update
     @user = @current_user
     user_details = user_params
+    binding.pry
     if params[:file]
         response = Cloudinary::Uploader.upload params[:file]
         user_details["image"] = response["url"]
