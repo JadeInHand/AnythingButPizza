@@ -42,12 +42,12 @@
   </div>
 
 
-  <div class="field">
+  <div>
     <%= f.label :file %>
     <%= f.cl_image_upload :file %>
   </div>
-  <div class="field actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit 'SUBMIT', :class => "button" %>
   </div>
 <% end %>
 </div>

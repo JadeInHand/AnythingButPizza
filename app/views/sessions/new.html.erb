@@ -1,5 +1,5 @@
 <!-- login screen for existing users -->
-
+<div class="jb-formin">
  
 <%= form_tag '/login', :class => 'form-inline' do %>
 <h2>Login</h2>
@@ -13,6 +13,7 @@
         <%= password_field_tag :password, nil, :class=> "form-control" %>
     </div>
     
-    <%= submit_tag "Login", { :class => "submit btn btn-primary" } %>
+    <%= submit_tag "Login", { :class => "button" } %>
     
 <% end %>
+</div>
