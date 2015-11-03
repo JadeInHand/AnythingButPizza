@@ -16,6 +16,9 @@
 
 @import url("//fonts.googleapis.com/css?family=Roboto:400,700,300");
 
+$thatBlue: #0faae4;
+
+
 body {
 	height: 100%;
 	font-family: "Roboto", sans-serif;
@@ -263,6 +266,12 @@ div.title {
   text-shadow: 3px 3px 0 #0199d9 , 4px 4px 0 #0199d9 , 5px 5px 0 #0199d9 , 6px 6px 0 #0199d9 , 7px 7px 0 #0199d9 , 8px 8px 0 #0199d9 , 9px 9px 0 #0199d9 , 10px 10px 0 #0199d9 , 11px 11px 0 #0199d9 , 12px 12px 0 #0199d9 , 13px 13px 0 #0199d9 , 14px 14px 0 #0199d9 , 15px 15px 0 #0199d9 , 16px 16px 0 #0199d9 , 17px 17px 0 #0199d9 , 18px 18px 0 #0199d9 , 19px 19px 0 #0199d9 , 20px 20px 0 #0199d9;
 }
 
+.backs {
+  background: #F7F7F7;
+}
+
+
+
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
 /*FORMS*/
 /*+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++*/
@@ -271,12 +280,10 @@ div.title {
     margin-left:auto;
     margin-right:auto;
     margin-bottom: 10px;
-    
     max-width: 700px;
     background: #F7F7F7;
     padding: 25px 15px 25px 10px;
-    
-    color: #888;
+    color: black;
     text-shadow: 1px 1px 1px #FFF;
     border:1px solid #E4E4E4;
 }
@@ -286,7 +293,7 @@ div.title {
     display: block;
     border-bottom:1px solid #E4E4E4;
     margin: -10px -15px 30px -10px;;
-    color: #888;
+    color: black;
 }
 .jb-formin h1>span {
     display: block;
@@ -304,11 +311,11 @@ div.title {
     text-align: right;
     padding-right: 10px;
     margin-top: 10px;
-    color: #888;
+    color: black;
 }
 .jb-formin input[type="text"], .jb-formin input[type="email"], .jb-formin input[type="password"], .jb-formin textarea, .jb-formin select {
     border: 1px solid #DADADA;
-    color: #888;
+    color: $thatBlue;
     height: 30px;
     margin-bottom: 16px;
     margin-right: 6px;
@@ -328,7 +335,7 @@ div.title {
 
 .jb-formin input[type="number"] {
   border: 1px solid #DADADA;
-    color: #888;
+    color: $thatBlue;
     height: 30px;
     margin-bottom: 16px;
     margin-right: 6px;
@@ -467,6 +474,7 @@ footer {
 .row, 
 .column {
     box-sizing: border-box;
+
 
 }
 

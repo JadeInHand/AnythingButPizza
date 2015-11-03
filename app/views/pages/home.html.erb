@@ -3,7 +3,7 @@
 <div class="column column-4">
 	
 	
-	<h1>Anything But Pizza</h1>
+	<h1>ANYTHING BUT PIZZA</h1>
 	<hr>
 	<p><%= image_tag 'svg/cut.svg', class: 'svg' %></p>
 	<hr>
@@ -13,7 +13,7 @@
 <div class="column column-4">
 	
 
-	<h1> SOME THINGS COOKING </h1>
+	<h1>SOME THINGS COOKING</h1>
 	<hr>
 	<p><%= image_tag 'svg/cut.svg', class: 'svg' %></p>
 	<hr>
@@ -27,7 +27,9 @@
 
 <div class="column column-4">
 	<% if @current_user.present? %>
-		<h1> In your area! : </h1>
+		<h1> WHAT'S IN YOUR AREA?! </h1>
+		<hr>
+		<p><%= image_tag 'svg/cut.svg', class: 'svg' %></p>
 		<hr>
 		<p><%= link_to "Categories", categories_path %></p>
 	<% end %>
