@@ -13,23 +13,28 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br>
+    <%= f.label :category_id %> 
+    <%= f.select :category_id, Category.all.map { |category| [category.types, category.id ] }, :selected => flash[:category_id] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :name %>
     <%= f.text_area :name %>
   </div>
   <div class="field">
-    <%= f.label :servings %><br>
+    <%= f.label :servings %>
     <%= f.number_field :servings, :min => 1 %>
   </div>
   <div class="field">
-    <%= f.label :cost %><br>
+    <%= f.label :cost %>
     <%= f.number_field :cost, :min => 1 %>
   </div>
   <div class="field">
-    <%= f.label :description %><br> 
+    <%= f.label :description %> 
     <%= f.text_area :description %>
   </div>
   <div class="field">
-    <%= f.label :tags %><br>
+    <%= f.label :tags %>
     <%= f.text_area :tags %>
   </div>
   <div class="field">
@@ -37,15 +42,13 @@
     <%= f.cl_image_upload :file %>
   </div>
   <div class="field">
-    <%= f.label :active %><br>
+    <%= f.label :active %>
     <%= f.check_box :active %>
   </div>
-  <div class="field">
-    <%= f.select :category_id, Category.all.map { |category| [category.types, category.id ] }, :selected => flash[:category_id] %>
-  </div>
+  
 
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'SUBMIT', :class => "button" %>
   </div>
 
 <% end %>

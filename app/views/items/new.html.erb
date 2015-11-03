@@ -1,32 +1,35 @@
-<h1>New Item</h1>
+<div class="jb-formin">
+  <h1>New Yum!</h1>
+  <h3>Please select or create a category</h3>
+  <button class="button" id="create-category">Create New Category</button>
 
-<button id="create-category">Create New Category</button>
+  <div class="jb-formin" id="show-create-category">
 
-<div id="show-create-category">
-  <h1> If your category is not showing above, add it below. </h1>
-  <%= form_for(@category) do |f| %>
-    <% if @category.errors.any? %>
-      <div id="error_explanation">
-        <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+    <h3> If your category is not showing above, add it below. </h3>
+    <%= form_for(@category) do |f| %>
+      <% if @category.errors.any? %>
+        <div id="error_explanation">
+          <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
 
-        <ul>
-        <% @category.errors.full_messages.each do |message| %>
-          <li><%= message %></li>
-        <% end %>
-        </ul>
+          <ul>
+          <% @category.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+          </ul>
+        </div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :types %><br>
+        <%= f.text_field :types %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
       </div>
     <% end %>
+  </div>
 
-    <div class="field">
-      <%= f.label :types %><br>
-      <%= f.text_field :types %>
-    </div>
-    <div class="actions">
-      <%= f.submit %>
-    </div>
-  <% end %>
+  <%= render 'form' %>
 </div>
-
-<%= render 'form' %>
 
 <%= link_to 'Back', items_path %>

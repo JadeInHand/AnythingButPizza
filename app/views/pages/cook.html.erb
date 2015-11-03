@@ -11,11 +11,12 @@
 				<% @yum_items.each do |yum| %>
 					<%= link_to yum.name, item_path(yum.id) %>
 					<p> Number of Servings left : <%= yum.servings %> </p>
-				<hr>
+				
 			<% end %>
 		<% end %>
 	</div>
 	<div class="column column-4">
+	
 		<h2> Past Yums </h2>
 		<% if @past_yums.empty? %>
 			<p> No previous Yums </p>
@@ -28,10 +29,10 @@
 	<br>
 	<% if @current_user.address == "" %>
 		<br>
-		<%= link_to "Add New YUM!", new_item_path, :data => {:confirm => "Must have current address in orderto create a new item"} %>
+		<%= link_to "Add New YUM!", new_item_path, :data => {:confirm => "Must have current address in orderto create a new item"}, :class => "new-yum" %>
 	<% else %>
 		<br>
-		<%= link_to "Add New YUM!", new_item_path %>
+		<%= link_to "Add New YUM!", new_item_path, :class => "new-yum" %>
 	<% end %>
 	</div>
 

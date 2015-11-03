@@ -251,6 +251,7 @@ div.title {
     margin-left:auto;
     margin-right:auto;
     margin-bottom: 10px;
+    margin-top: 20px;
     max-width: 700px;
     background: #F7F7F7;
     padding: 25px 15px 25px 10px;
@@ -274,6 +275,8 @@ div.title {
 .jb-formin label {
     display: block;
     margin: 0px;
+    text-decoration: underline;
+    font-weight: bold;
 }
 .jb-formin label>span {
     float: left;
@@ -299,6 +302,27 @@ div.title {
     -moz-box-shadow: inset 0px 1px 4px #ECECEC;
     -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
 }
+.jb-formin input[type="checkbox"] {
+  margin-top: -10px;
+}
+
+.jb-formin input[type="number"] {
+  border: 1px solid #DADADA;
+    color: #888;
+    height: 30px;
+    margin-bottom: 16px;
+    margin-right: 6px;
+    
+    outline: 0 none;
+    padding: 3px 3px 3px 5px;
+    width: 30px;
+    font-size: 12px;
+    line-height:15px;
+    box-shadow: inset 0px 1px 4px #ECECEC;
+    -moz-box-shadow: inset 0px 1px 4px #ECECEC;
+    -webkit-box-shadow: inset 0px 1px 4px #ECECEC;
+
+}
 .jb-formin textarea{
     padding: 5px 3px 3px 5px;
 }
@@ -318,7 +342,8 @@ div.title {
     height:100px;
 }
 .jb-formin .button, input[type="file"], {
-	margin-top: 10px;
+	 margin-top: 10px;
+    margin-bottom: 10px;
     background: #0faae4;
     border: none;
     padding: 10px 25px 10px 25px;
@@ -329,6 +354,22 @@ div.title {
     cursor: pointer;
 }
 .jb-formin .button:hover, input[type="file"]:hover {
+    background: red;
+}
+
+.new-yum {
+   margin-top: 10px;
+    margin-bottom: 10px;
+    background: #0faae4;
+    border: none;
+    padding: 10px 25px 10px 25px;
+    color: #FFF;
+    box-shadow: 1px 1px 5px #B6B6B6;
+    border-radius: 3px;
+    text-shadow: 1px 1px 1px #9E3F3F;
+    cursor: pointer;
+}
+.new-yum:hover {
     background: red;
 }
 
