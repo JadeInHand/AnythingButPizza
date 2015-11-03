@@ -1,47 +1,33 @@
-
-
 .item-img {
-	max-width: 300px;
+    max-width: 300px;
 }
-
 .user-img {
-	max-width: 300px;
+    max-width: 300px;
 }
-
 .category-list ul {
-	
-	background:none!important;
-	border:display; 
-	padding:0!important;
-	font: inherit;
-	cursor: pointer;
-	font-size: 2em;
-	
-	
-	
+    background: none!important;
+    border: display;
+    padding: 0!important;
+    font: inherit;
+    cursor: pointer;
+    font-size: 2em;
 }
-
 .category-list ul li {
-	position: relative;
-	top: 10px;
-	left: 30px;
-	width: 100%;
+    position: relative;
+    top: 10px;
+    left: 30px;
+    width: 100%;
 }
 .category-list ul li a {
-
-	color: green;
-	text-decoration: none;
-	
-	font-size: .5em;
+    color: green;
+    text-decoration: none;
+    font-size: .5em;
 }
-
 .category-list ul li:hover {
-	font-weight: bold;
-	background-color: rgba(255,255,255,0);
-	text-decoration: underline;
+    font-weight: bold;
+    background-color: rgba(255, 255, 255, 0);
+    text-decoration: underline;
 }
-
 .ontheway-img {
-	max-width: 150px;
-
+    max-width: 150px;
 }

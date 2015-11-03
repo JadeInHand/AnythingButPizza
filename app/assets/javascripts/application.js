@@ -16,13 +16,14 @@
 
 $(document).ready(function() {
 
-  	 jQuery(function($){
-     	     $( '.menu-btn' ).click(function(){
-     	     $('.responsive-menu').toggleClass('expand');
-     	     
-     	     });
-         });
-  	$(".done").on('click', function(){
-           $(this).closest('li').remove();
+    jQuery(function($) {
+        $('.menu-btn').click(function() {
+            $('.responsive-menu').toggleClass('expand');
+
+        });
+    });
+
+    $(".done").on('click', function() {
+        $(this).closest('li').remove();
     });
 });
