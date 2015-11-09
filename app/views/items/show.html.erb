@@ -60,20 +60,17 @@
   <% end %>
 <% end %>
 
-<br>
-<br>
-
 <!-- only the cook can edit or delete the item -->
 <% if @current_user.id == @item.user_id %>
   <%= link_to 'Edit', edit_item_path(@item) %>
   <%= link_to 'Destroy', item_path, method: :delete, data: { confirm: 'Are you sure?' } %>
 <% end %>
-
 <!-- users, other than the cook, can add the item to their shopping cart only if the item is active and quantity is more than 0 -->
   <% unless @current_user.id == @item.user_id %>
     <% unless @item.active == false %>
       <% unless @item.servings_left <= 0 %>
         <div class="price_line">
+        <h3>Want some yums?!</h3>
           <%= form_tag line_items_path(:line_item =>{:item_id => @item.id, :shopping_cart_id => session[:shopping_cart_id], :cost => @item.cost}), {method: :post} do %>
             <%= number_field_tag 'quantity', nil, in: 1...(@item.servings_left + 1)  %>
             <%= button_tag 'Add to Cart'%>

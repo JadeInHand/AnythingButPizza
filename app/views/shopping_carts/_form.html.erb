@@ -1,3 +1,4 @@
+<div class="jb-formin">
 <%= form_for(@shopping_cart) do |f| %>
   <% if @shopping_cart.errors.any? %>
     <div id="error_explanation">
@@ -12,18 +13,19 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :total_cost %><br>
+    <%= f.label :total_cost %>
     <%= f.number_field :total_cost %>
   </div>
   <div class="field">
-    <%= f.label :order_number %><br>
+    <%= f.label :order_number %>
     <%= f.number_field :order_number %>
   </div>
   <div class="field">
-    <%= f.label :user_id %><br>
+    <%= f.label :user_id %>
     <%= f.number_field :user_id %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Update Shopping Cart', :class => "button" %>
   </div>
 <% end %>
+</div>

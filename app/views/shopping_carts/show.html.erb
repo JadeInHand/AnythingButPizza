@@ -1,21 +1,23 @@
 <p id="notice"><%= notice %></p>
 
 <!-- line items and quantity -->
-<% @shopping_cart.summary.each {|lineitem, quantity| %>
-	<p><%= pluralize(quantity, lineitem) %></p> <% } %>
-<p>
-  <strong>Total Cost:</strong>
-  $<%= @shopping_cart.total_cost %>
-</p>
-<p>
-  <strong>User:</strong>
-  <%= @shopping_cart.user.name %>
-</p>
+<div class="jb-formin">
+<h1>Shopping Cart</h1>
+	<% @shopping_cart.summary.each {|lineitem, quantity| %>
+		<p>Hello <strong> <%= @shopping_cart.user.name %></strong>, you have <strong> <%= pluralize(quantity, lineitem) %></strong> in your shopping cart. </p> <% } %>
+	<p>
+	  <strong>Total Cost:</strong>
+	  $<%= @shopping_cart.total_cost %>
+	</p>
 
-<%= link_to 'Edit', edit_shopping_cart_path(@shopping_cart) %> |
-<%= link_to 'Back', shopping_carts_path %>
+	<!-- payment link -->
+	<form style="padding-top: 10px; padding-bottom: 10px;">
+		<%= link_to 'Pay', '/payment/new', :class => "button"%>
+	</form>
 
-<form>
-<!-- payment link -->
-<%= link_to 'Pay', '/payment/new'%>
-</form>
+	<p> 
+		<%= link_to 'Edit', edit_shopping_cart_path(@shopping_cart) %> |
+		<%= link_to 'Back', shopping_carts_path %>
+	</p>
+
+</div>

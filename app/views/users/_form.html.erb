@@ -13,41 +13,40 @@
 
 
   <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_area :name %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :email %><br>
-    <%= f.text_area :email %>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
   </div>
 
 
   <div class="field">
-    <%= f.label :password %><br>
+    <%= f.label :password %>
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br>
+    <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
   </div>
 
-
   <div class="field">
-    <%= f.label :address %><br>
+    <%= f.label :address %>
     <%= f.text_area :address %>
   </div>
   <div class="field">
-    <%= f.label :postcode %><br>
+    <%= f.label :postcode %>
     <%= f.text_field :postcode %>
   </div>
 
 
-  <div class="field">
+  <div>
     <%= f.label :file %>
     <%= f.cl_image_upload :file %>
   </div>
-  <div class="field actions">
-    <%= f.submit %>
+  <div>
+    <%= f.submit 'SUBMIT', :class => "button" %>
   </div>
 <% end %>
 </div>

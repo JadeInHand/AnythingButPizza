@@ -1,6 +1,8 @@
 <!-- the Stripe payment button -->
-
+<div class="jb-formin">
 <h2>PAY YOUR BILL</h2>
+
+<p> Your total bill is <strong> $<%= @cost %></strong>.</p>
 <form action="/payment" method="POST">
   <script
     src="https://checkout.stripe.com/checkout.js" class="stripe-button"
@@ -12,3 +14,4 @@
     data-locale="auto">
   </script>
 </form>
+</div>
